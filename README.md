@@ -131,6 +131,8 @@ The site builds to static files in `dist/`. Any static host works. These have fr
 
 **Vercel**: import the repo. It detects Vite automatically, and `vercel.json` handles SPA routing.
 
+**Cloudflare (Workers)**: connect the repo, build command `npm run build`, deploy command `npx wrangler deploy`. `wrangler.jsonc` serves `dist` with SPA routing. Add the `VITE_*` values under *Settings → Build → Variables and secrets* (they're needed at build time).
+
 **Cloudflare Pages**: build command `npm run build`, output directory `dist`. `_redirects` is supported.
 
 On every host, add the `VITE_*` environment variables in the dashboard, since `.env` is not committed. Then redeploy.

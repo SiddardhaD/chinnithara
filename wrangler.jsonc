@@ -1,0 +1,12 @@
+// Cloudflare Workers static-site config (used by `npx wrangler deploy`).
+// Serves the Vite build in ./dist and sends every unknown path to index.html,
+// so React Router can handle links like /products/muslin-zip-frock.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chinnithara",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
