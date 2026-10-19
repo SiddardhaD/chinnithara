@@ -1,0 +1,271 @@
+@import 'tailwindcss';
+
+/* ────────────────────────────────────────────────────────────────────────────
+   ChinniThara design tokens — the single place to change brand colours & type.
+   Text-safe on white (WCAG AA): ink, brown, cocoa-deep, sage-deep.
+   cocoa, gold, sage and blush are for accents, large type and surfaces.
+   ──────────────────────────────────────────────────────────────────────────── */
+@theme {
+  /* Surfaces — clean white app with neutral off-white sections */
+  --color-ivory: #ffffff;
+  --color-ivory-deep: #f7f7f5;
+  --color-linen: #f1f0ed;
+  /* Exact background of the official logo artwork, so the logo sits on a matching card */
+  --color-logo-cream: #fef9ef;
+
+  /* Brand accents — use sparingly */
+  --color-cocoa: #a86f43;
+  --color-cocoa-deep: #8a5630;
+  --color-gold: #ddb16f;
+  --color-gold-soft: #f4e8cf;
+  --color-sage: #9aa18a;
+  --color-sage-soft: #eef0ea;
+  --color-sage-deep: #5c6450;
+  --color-blush: #ebc8b9;
+  --color-blush-soft: #faf1ed;
+
+  /* Text — near-neutral darks (headings / body) */
+  --color-brown: #34302c;
+  --color-ink: #2b2927;
+  --color-white: #ffffff;
+  --color-whatsapp: #1f7a4d;
+
+  --font-display: 'Nunito', ui-rounded, 'Mulish', system-ui, sans-serif;
+  --font-sans: 'Mulish', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-soft: 1.25rem;
+  --radius-arch: 999px 999px 1.25rem 1.25rem;
+
+  --shadow-whisper: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -12px rgb(0 0 0 / 0.16);
+
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.35s ease-out both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-brown);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  /* Accent words in headings use colour, not italics. */
+  :is(h1, h2, h3, h4) em {
+    font-style: normal;
+  }
+  ::selection {
+    background: var(--color-gold-soft);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--color-cocoa-deep) 70%, transparent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Space for the mobile bottom tab bar (and the iPhone home indicator). */
+  .pb-tabbar {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+  @media (min-width: 1024px) {
+    .pb-tabbar {
+      padding-bottom: 0;
+    }
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  /* Horizontal swipe rows on mobile */
+  .scroll-row {
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .scroll-row::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-row > * {
+    scroll-snap-align: start;
+  }
+  /* Without paint containment, mobile Chrome widens the layout viewport to fit the
+     off-screen cards, which zooms the whole page out. Rows are grids from md up. */
+  @media (max-width: 767.98px) {
+    .scroll-row {
+      contain: paint;
+    }
+  }
+
+  .container-page {
+    width: 100%;
+    max-width: 82rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-sage-deep);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 2.9rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn-primary {
+    background: var(--color-brown);
+    color: var(--color-ivory);
+  }
+  .btn-primary:hover {
+    background: var(--color-ink);
+  }
+  .btn-outline {
+    border: 1px solid color-mix(in srgb, var(--color-brown) 45%, transparent);
+    color: var(--color-brown);
+    background: transparent;
+  }
+  .btn-outline:hover {
+    border-color: var(--color-brown);
+    background: color-mix(in srgb, var(--color-brown) 5%, transparent);
+  }
+  .btn-whatsapp {
+    background: var(--color-whatsapp);
+    color: var(--color-white);
+  }
+  .btn-whatsapp:hover {
+    background: #17603c;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.3s ease;
+  }
+  .link-underline:hover,
+  .link-underline[aria-current='page'] {
+    background-size: 100% 1px;
+  }
+
+  .prose-ct {
+    color: var(--color-ink);
+    max-width: 44rem;
+  }
+  .prose-ct h2 {
+    font-size: 1.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-ct h3 {
+    font-size: 1.3rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-ct p,
+  .prose-ct ul {
+    margin-bottom: 1rem;
+  }
+  .prose-ct ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .prose-ct li {
+    margin-bottom: 0.4rem;
+  }
+  .prose-ct li::marker {
+    color: var(--color-cocoa);
+  }
+  .prose-ct a {
+    color: var(--color-cocoa-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
