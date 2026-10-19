@@ -3,7 +3,7 @@
 // so React Router can handle links like /products/muslin-zip-frock.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "chinnithara",
+  "name": "chinnithata",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./dist",

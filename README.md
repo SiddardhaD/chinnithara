@@ -127,13 +127,13 @@ Products without photos show a designed line-drawing placeholder labelled "Photo
 
 The site builds to static files in `dist/`. Any static host works. These have free plans:
 
-**Netlify**: build command `npm run build`, publish directory `dist`. SPA routing is handled by `public/_redirects`.
+**Netlify**: build command `npm run build`, publish directory `dist`. SPA routing is handled by `netlify.toml`.
 
 **Vercel**: import the repo. It detects Vite automatically, and `vercel.json` handles SPA routing.
 
 **Cloudflare (Workers)**: connect the repo, build command `npm run build`, deploy command `npx wrangler deploy`. `wrangler.jsonc` serves `dist` with SPA routing. Add the `VITE_*` values under *Settings → Build → Variables and secrets* (they're needed at build time).
 
-**Cloudflare Pages**: build command `npm run build`, output directory `dist`. `_redirects` is supported.
+**Cloudflare Pages**: build command `npm run build`, output directory `dist`.
 
 On every host, add the `VITE_*` environment variables in the dashboard, since `.env` is not committed. Then redeploy.
 
