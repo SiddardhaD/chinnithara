@@ -83,6 +83,15 @@ Collections ([`src/data/categories.ts`](src/data/categories.ts)) are filters, so
 
 For assorted products (like the Muslin Knot Frock), add one photo per design to `images` and list each design in `designs` with its `imageIndex`. Customers must pick a design and a size before ordering, and the chosen design is included in the WhatsApp message.
 
+### Live stock from Google Sheets
+
+1. In Google Sheets, create a tab named **Stock** and import [`docs/stock-template.csv`](docs/stock-template.csv) (File → Import). It lists every product, design and size.
+2. Fill in the **quantity** column. Leave a row blank to stop tracking it, which shows "Confirmed on WhatsApp".
+3. File → Share → **Publish to web** → choose **only the Stock tab** → **Comma-separated values (.csv)** → Publish, and copy the link.
+4. Set `VITE_STOCK_SHEET_URL` to that link (in `.env` and in Cloudflare build variables) and redeploy once.
+
+After that, editing a quantity in the sheet updates the website within a few minutes. Google caches published sheets for up to about 5 minutes. Rules: `0` shows **Sold out** and the button becomes "Ask about restocking"; `1–3` shows **Only N left**; more than 3 shows **In stock**. Keep sales and money in other tabs. Only the Stock tab is published.
+
 ### Image guidelines
 
 - Use **genuine photos of the actual products only**. Don't use supplier flyers, AI images or stock photos.

@@ -24,6 +24,8 @@ const knotDir = '/images/products/muslin-knot-frock';
 const coordDir = '/images/products/muslin-co-ord-set-colour-print';
 const zipDir = '/images/products/muslin-zip-frock';
 const nappyDir = '/images/products/muslin-cloth-nappy';
+const swaddleDir = '/images/products/muslin-swaddle';
+const jablaDir = '/images/products/side-button-muslin-jabla';
 
 export const products: Product[] = [
   {
@@ -311,21 +313,70 @@ export const products: Product[] = [
     id: 'ct-007',
     slug: 'side-button-muslin-jabla',
     name: 'Side-Button Muslin Jabla',
-    summary: 'A classic side-button muslin jabla in assorted prints on a white base.',
+    summary: 'A sleeveless white muslin jabla that fastens with wooden-look buttons down the side, in 3 designs.',
     description: [
-      'A classic muslin jabla that fastens with buttons at the side, in assorted prints on a white base.',
-      'Designs vary by batch — message us on WhatsApp and we will share the prints currently available.',
+      'A classic sleeveless muslin jabla with a crossover front that fastens with buttons down the side — no pulling over little heads. Neat white binding finishes the neck and armholes.',
+      'Available in three sweet prints on a white base — choose your favourite below.',
     ],
-    images: [], // TODO: add genuine photos
+    images: [
+      {
+        src: `${jablaDir}/rainbow-balloons-flat-1080.webp`,
+        srcSet: `${jablaDir}/rainbow-balloons-flat-600.webp 600w, ${jablaDir}/rainbow-balloons-flat-1080.webp 1080w`,
+        alt: 'White muslin jabla with rainbows, hot-air balloons, clouds and stars, laid flat showing the side buttons',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${jablaDir}/rainbow-balloons-worn-1080.webp`,
+        srcSet: `${jablaDir}/rainbow-balloons-worn-600.webp 600w, ${jablaDir}/rainbow-balloons-worn-1080.webp 1080w`,
+        alt: 'Smiling baby wearing the white muslin jabla with rainbows, hot-air balloons, clouds and stars',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${jablaDir}/sage-elephants-flat-1080.webp`,
+        srcSet: `${jablaDir}/sage-elephants-flat-600.webp 600w, ${jablaDir}/sage-elephants-flat-1080.webp 1080w`,
+        alt: 'White muslin jabla with sage and taupe elephants, balloons and rainbows, laid flat showing the side buttons',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${jablaDir}/sage-elephants-worn-1080.webp`,
+        srcSet: `${jablaDir}/sage-elephants-worn-600.webp 600w, ${jablaDir}/sage-elephants-worn-1080.webp 1080w`,
+        alt: 'Smiling baby wearing the white muslin jabla with sage and taupe elephants, balloons and rainbows',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${jablaDir}/ice-creams-flat-1080.webp`,
+        srcSet: `${jablaDir}/ice-creams-flat-600.webp 600w, ${jablaDir}/ice-creams-flat-1080.webp 1080w`,
+        alt: 'White muslin jabla with smiling ice creams and popsicles, laid flat showing the side buttons',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${jablaDir}/ice-creams-worn-1080.webp`,
+        srcSet: `${jablaDir}/ice-creams-worn-600.webp 600w, ${jablaDir}/ice-creams-worn-1080.webp 1080w`,
+        alt: 'Smiling baby wearing the white muslin jabla with smiling ice creams and popsicles',
+        width: 1080,
+        height: 1080,
+      },
+    ],
     category: 'jablas',
     style: 'Side-button jabla',
     closure: 'side-button',
+    designs: [
+      { id: 'rainbow-balloons', name: 'Rainbows & Balloons', colour: 'White', imageIndex: 0, lifestyleIndex: 1 },
+      { id: 'sage-elephants', name: 'Sage Elephants', colour: 'White', imageIndex: 2, lifestyleIndex: 3 },
+      { id: 'ice-creams', name: 'Ice Creams', colour: 'White', imageIndex: 4, lifestyleIndex: 5 },
+    ],
     print: 'white-on-print',
-    colour: 'White base with assorted prints',
+    colour: 'White base with colourful prints',
     availableSizes: ['3-6M'],
     fabric: 'Muslin',
+    featured: true,
     isNewArrival: true,
-    listingStatus: 'draft',
+    listingStatus: 'live',
     addedOn: '2026-10-18',
   },
   {
@@ -352,20 +403,84 @@ export const products: Product[] = [
     id: 'ct-009',
     slug: 'muslin-swaddle',
     name: 'Muslin Swaddle',
-    summary: 'A 100 × 100 cm muslin swaddle in assorted prints on a coloured base.',
+    summary: 'A generous 100 × 100 cm muslin swaddle in soft crinkled muslin, in 4 designs.',
     description: [
-      'A generous 100 × 100 cm muslin swaddle in assorted prints on a soft coloured base.',
-      'Designs vary by batch — message us on WhatsApp and we will share the prints currently available.',
+      'A generous 100 × 100 cm muslin swaddle with a soft, crinkled texture — big enough to wrap your little one snugly.',
+      'Available in four designs on soft coloured bases — choose your favourite below.',
     ],
-    images: [], // TODO: add genuine photos
+    images: [
+      {
+        src: `${swaddleDir}/sage-sprigs-flat-1080.webp`,
+        srcSet: `${swaddleDir}/sage-sprigs-flat-600.webp 600w, ${swaddleDir}/sage-sprigs-flat-1080.webp 1080w`,
+        alt: 'Sage green muslin swaddle with small white sprig prints, swirled on a jute mat',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${swaddleDir}/sage-sprigs-worn-1080.webp`,
+        srcSet: `${swaddleDir}/sage-sprigs-worn-600.webp 600w, ${swaddleDir}/sage-sprigs-worn-1080.webp 1080w`,
+        alt: 'Smiling baby wrapped in the sage green muslin swaddle with small white sprig prints',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${swaddleDir}/pink-peaches-flat-1080.webp`,
+        srcSet: `${swaddleDir}/pink-peaches-flat-600.webp 600w, ${swaddleDir}/pink-peaches-flat-1080.webp 1080w`,
+        alt: 'Soft pink muslin swaddle with peach prints, swirled on a jute mat',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${swaddleDir}/pink-peaches-worn-1080.webp`,
+        srcSet: `${swaddleDir}/pink-peaches-worn-600.webp 600w, ${swaddleDir}/pink-peaches-worn-1080.webp 1080w`,
+        alt: 'Smiling baby wrapped in the soft pink muslin swaddle with peach prints',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${swaddleDir}/aqua-toucans-flat-1080.webp`,
+        srcSet: `${swaddleDir}/aqua-toucans-flat-600.webp 600w, ${swaddleDir}/aqua-toucans-flat-1080.webp 1080w`,
+        alt: 'Aqua muslin swaddle with toucans, tropical leaves and hibiscus, swirled on a jute mat',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${swaddleDir}/aqua-toucans-worn-1080.webp`,
+        srcSet: `${swaddleDir}/aqua-toucans-worn-600.webp 600w, ${swaddleDir}/aqua-toucans-worn-1080.webp 1080w`,
+        alt: 'Smiling baby wrapped in the aqua muslin swaddle with toucans, tropical leaves and hibiscus',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${swaddleDir}/rust-blossoms-flat-1080.webp`,
+        srcSet: `${swaddleDir}/rust-blossoms-flat-600.webp 600w, ${swaddleDir}/rust-blossoms-flat-1080.webp 1080w`,
+        alt: 'Rust orange muslin swaddle with small white flowers, swirled on a jute mat',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${swaddleDir}/rust-blossoms-worn-1080.webp`,
+        srcSet: `${swaddleDir}/rust-blossoms-worn-600.webp 600w, ${swaddleDir}/rust-blossoms-worn-1080.webp 1080w`,
+        alt: 'Smiling baby wrapped in the rust orange muslin swaddle with small white flowers',
+        width: 1080,
+        height: 1080,
+      },
+    ],
     category: 'essentials',
     style: 'Swaddle',
+    designs: [
+      { id: 'sage-sprigs', name: 'Sage Sprigs', colour: 'Sage green', imageIndex: 0, lifestyleIndex: 1 },
+      { id: 'pink-peaches', name: 'Pink Peaches', colour: 'Pink', imageIndex: 2, lifestyleIndex: 3 },
+      { id: 'aqua-toucans', name: 'Aqua Toucans', colour: 'Aqua', imageIndex: 4, lifestyleIndex: 5 },
+      { id: 'rust-blossoms', name: 'Rust Blossoms', colour: 'Rust orange', imageIndex: 6, lifestyleIndex: 7 },
+    ],
     print: 'dyed-on-print',
-    colour: 'Coloured base with assorted prints',
+    colour: 'Sage green, pink, aqua and rust orange',
     availableSizes: ['100x100CM'],
     fabric: 'Muslin',
+    featured: true,
     isNewArrival: true,
-    listingStatus: 'draft',
+    listingStatus: 'live',
     addedOn: '2026-10-18',
   },
   {

@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { getPrint } from '../../data/prints';
 import { getSize, sortSizes } from '../../data/sizes';
 import type { Product } from '../../types/product';
+import { useStock } from '../../hooks/useStock';
 import { buildProductEnquiryMessage } from '../../utils/whatsapp';
 import { GarmentIllustration } from '../common/GarmentIllustration';
 import { ResponsiveImage } from '../common/ResponsiveImage';
@@ -18,6 +19,7 @@ export function ProductCard({ product, index = 0, priority = false }: { product:
     .map((s) => getSize(s).label)
     .join(' · ');
   const print = getPrint(product.print);
+  const stockLevel = useStock().level(product.slug);
 
   return (
     <article className="group flex h-full flex-col">
@@ -48,6 +50,15 @@ export function ProductCard({ product, index = 0, priority = false }: { product:
             tone={index}
             className="transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
+        )}
+        {stockLevel && stockLevel.tone !== 'ok' && (
+          <span
+            className={`absolute top-3 right-3 z-10 rounded-full px-2.5 py-1 text-[0.68rem] font-bold text-white ${
+              stockLevel.tone === 'out' ? 'bg-ink/80' : 'bg-[#b5651d]'
+            }`}
+          >
+            {stockLevel.label}
+          </span>
         )}
         {print && print.family !== 'assorted' && print.family !== 'plain' && (
           <span className="absolute top-3 left-3 rounded-full bg-ivory/90 px-2.5 py-1 text-[0.66rem] font-bold tracking-[0.05em] text-brown uppercase backdrop-blur">

@@ -11,6 +11,7 @@ import { NewArrivalsTabs } from '../components/home/NewArrivalsTabs';
 import { ShopByAge } from '../components/home/ShopByAge';
 import { ShopByPrintStrip } from '../components/home/ShopByPrintStrip';
 import { ShopByStyle } from '../components/home/ShopByStyle';
+import { SwaddleSpotlight } from '../components/home/SwaddleSpotlight';
 import { Testimonials } from '../components/home/Testimonials';
 import { ProductPrice } from '../components/product/ProductPrice';
 import { instagramUrl, siteConfig } from '../config/site';
@@ -41,6 +42,8 @@ export function HomePage() {
       <ShopByStyle products={products} />
 
       <ShopByPrintStrip />
+
+      <SwaddleSpotlight product={products.find((p) => p.slug === 'muslin-swaddle')} />
 
       {/* G. Featured Little Favourites (no sales data yet, so not labelled "Bestsellers") */}
       {hero && (

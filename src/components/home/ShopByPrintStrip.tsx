@@ -1,22 +1,6 @@
 import { Link } from 'react-router';
+import { printSwatches as swatches } from '../../data/printSwatches';
 import { SectionHeading } from '../common/SectionHeading';
-
-/**
- * Round fabric swatches cut from real product photos (public/images/prints/).
- * Each opens Shop All filtered by the print name, so it stays correct as products change.
- */
-const swatches = [
-  { name: 'Penguins', q: 'penguins', img: 'penguins' },
-  { name: 'Bunnies', q: 'bunnies', img: 'bunnies' },
-  { name: 'Peaches', q: 'peaches', img: 'peaches' },
-  { name: 'Mangoes', q: 'mangoes', img: 'mangoes' },
-  { name: 'Toucans', q: 'toucans', img: 'toucans' },
-  { name: 'Leaves', q: 'leaves', img: 'leaves' },
-  { name: 'Butterflies', q: 'butterflies', img: 'butterflies' },
-  { name: 'Moons & Clouds', q: 'moons', img: 'moons' },
-  { name: 'Crabs', q: 'crabs', img: 'crabs' },
-  { name: 'Birds', q: 'birds', img: 'birds' },
-];
 
 export function ShopByPrintStrip() {
   return (

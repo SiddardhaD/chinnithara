@@ -7,11 +7,13 @@ type Props = {
   value: ProductDesign | null;
   onChange: (design: ProductDesign) => void;
   error?: string;
+  /** Live stock: true when a design is sold out (shown dimmed, still selectable for restock enquiries). */
+  isSoldOut?: (designId: string) => boolean;
 };
 
 /** Photo swatches for products that come in several designs (native radios underneath). */
 export const DesignSelector = forwardRef<HTMLFieldSetElement, Props>(function DesignSelector(
-  { product, value, onChange, error },
+  { product, value, onChange, error, isSoldOut },
   ref,
 ) {
   const name = useId();
@@ -45,7 +47,15 @@ export const DesignSelector = forwardRef<HTMLFieldSetElement, Props>(function De
                 onChange={() => onChange(design)}
                 className="sr-only"
               />
-              <span className="sr-only">{design.name}</span>
+              <span className="sr-only">
+                {design.name}
+                {isSoldOut?.(design.id) && ' (sold out)'}
+              </span>
+              {isSoldOut?.(design.id) && (
+                <span className="absolute inset-0 z-10 grid place-items-center bg-white/55 text-[0.6rem] font-bold text-ink uppercase">
+                  Sold out
+                </span>
+              )}
               {image && (
                 <img
                   src={image.srcSet ? image.srcSet.split(' ')[0] : image.src}

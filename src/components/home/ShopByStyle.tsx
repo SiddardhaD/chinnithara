@@ -13,7 +13,11 @@ const tiles: Array<{ slug: string; illustration: CategorySlug; cover?: string }>
     cover: '/images/products/muslin-co-ord-set-colour-print/aqua-penguins-600.webp',
   },
   { slug: 'frocks', illustration: 'frocks', cover: '/images/products/muslin-zip-frock/aqua-toucans-600.webp' },
-  { slug: 'jablas-and-rompers', illustration: 'jablas' },
+  {
+    slug: 'jablas-and-rompers',
+    illustration: 'jablas',
+    cover: '/images/products/side-button-muslin-jabla/ice-creams-flat-600.webp',
+  },
   {
     slug: 'muslin-essentials',
     illustration: 'essentials',

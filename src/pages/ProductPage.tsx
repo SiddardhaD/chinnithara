@@ -15,6 +15,7 @@ import { getPrint } from '../data/prints';
 import { getSize, isAgeSize } from '../data/sizes';
 import { useProduct } from '../hooks/useCatalog';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { useStock } from '../hooks/useStock';
 import type { Availability, Closure, ProductDesign, SizeCode } from '../types/product';
 import { buildOrderMessage } from '../utils/whatsapp';
 import { NotFoundPage } from './NotFoundPage';
@@ -65,6 +66,7 @@ export function ProductPage() {
   const [searchParams] = useSearchParams();
   const designParam = searchParams.get('design');
   const [triedToOrder, setTriedToOrder] = useState(false);
+  const stock = useStock();
   const { product, related } = useProduct(slug);
   const [size, setSize] = useState<SizeCode | null>(null);
   const [quantity, setQuantity] = useState(1);
@@ -114,10 +116,22 @@ export function ProductPage() {
 
   const category = getCategory(product.category);
   const print = getPrint(product.print);
-  const soldOut = product.availability === 'sold-out';
+  // Live stock (Google Sheet) for the current choice; falls back to the static field.
+  const liveLevel = stock.level(product.slug, design?.id, size ?? undefined);
+  const productLevel = stock.level(product.slug);
+  const soldOut = liveLevel ? liveLevel.tone === 'out' : product.availability === 'sold-out';
+  const availabilityLabel = liveLevel
+    ? liveLevel.label
+    : product.availability
+      ? availabilityText[product.availability]
+      : 'Confirmed when you enquire on WhatsApp';
+  // Quantity can't exceed live stock for the current choice (when tracked).
+  const maxQty = liveLevel && liveLevel.qty > 0 ? Math.min(MAX_QTY, liveLevel.qty) : MAX_QTY;
+  const qty = Math.min(quantity, maxQty);
+  const atStockLimit = !!liveLevel && liveLevel.qty > 0 && qty >= liveLevel.qty;
   const needsDesign = !!product.designs?.length;
   const ready = !!size && (!needsDesign || !!design);
-  const message = ready && size ? buildOrderMessage(product, size, quantity, design) : null;
+  const message = ready && size ? buildOrderMessage(product, size, qty, design) : null;
   const missingChoices = [needsDesign && !design && 'a design', !size && 'a size'].filter(Boolean).join(' and ');
   const ctaLabel = soldOut ? 'Ask about restocking' : 'Order on WhatsApp';
 
@@ -162,7 +176,7 @@ export function ProductPage() {
             onActiveChange={(i) => {
               setGalleryIndex(i);
               // Tapping a design's photo also selects that design.
-              const match = product.designs?.find((d) => d.imageIndex === i);
+              const match = product.designs?.find((d) => d.imageIndex === i || d.lifestyleIndex === i);
               if (match) {
                 setDesign(match);
                 setDesignError('');
@@ -199,8 +213,19 @@ export function ProductPage() {
                   </div>
                 ))}
               <dt className="font-semibold text-brown">Availability</dt>
-              <dd className="text-ink/85">
-                {product.availability ? availabilityText[product.availability] : 'Confirmed when you enquire on WhatsApp'}
+              <dd
+                className={
+                  liveLevel?.tone === 'out'
+                    ? 'font-semibold text-cocoa-deep'
+                    : liveLevel?.tone === 'low'
+                      ? 'font-semibold text-[#b5651d]'
+                      : liveLevel
+                        ? 'font-semibold text-whatsapp'
+                        : 'text-ink/85'
+                }
+              >
+                {availabilityLabel}
+                {productLevel?.tone === 'out' && ' — all designs'}
               </dd>
             </dl>
 
@@ -209,6 +234,7 @@ export function ProductPage() {
                 <DesignSelector
                   ref={designRef}
                   product={product}
+                  isSoldOut={(id) => stock.level(product.slug, id)?.tone === 'out'}
                   value={design}
                   onChange={(d) => {
                     setDesign(d);
@@ -237,26 +263,32 @@ export function ProductPage() {
                 <div role="group" aria-labelledby="qty-label" className="inline-flex items-center rounded-full border border-brown/30">
                   <button
                     type="button"
-                    onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                    disabled={quantity <= 1}
+                    onClick={() => setQuantity(Math.max(1, qty - 1))}
+                    disabled={qty <= 1}
                     className="grid size-11 place-items-center rounded-full text-brown hover:bg-brown/5 disabled:opacity-35"
                     aria-label="Decrease quantity"
                   >
                     <Minus className="size-4" />
                   </button>
                   <output aria-live="polite" className="w-10 text-center font-semibold text-brown">
-                    {quantity}
+                    {qty}
                   </output>
                   <button
                     type="button"
-                    onClick={() => setQuantity((q) => Math.min(MAX_QTY, q + 1))}
-                    disabled={quantity >= MAX_QTY}
+                    onClick={() => setQuantity(Math.min(maxQty, qty + 1))}
+                    disabled={qty >= maxQty}
                     className="grid size-11 place-items-center rounded-full text-brown hover:bg-brown/5 disabled:opacity-35"
                     aria-label="Increase quantity"
                   >
                     <Plus className="size-4" />
                   </button>
                 </div>
+                {atStockLimit && (
+                  <p className="mt-2 text-xs text-ink/65">
+                    Only {liveLevel!.qty} available in this {needsDesign ? 'design' : 'item'}
+                    {size ? ' and size' : ''}.
+                  </p>
+                )}
               </div>
 
               <div ref={ctaRef}>
@@ -331,7 +363,7 @@ export function ProductPage() {
           <div className="min-w-0 flex-1">
             <p className="truncate font-display text-lg text-brown">{product.name}</p>
             <p className="text-xs text-ink/70">{ready && size
-                ? `${design ? `${design.name} · ` : ''}Size ${getSize(size).label} · Qty ${quantity}`
+                ? `${design ? `${design.name} · ` : ''}Size ${getSize(size).label} · Qty ${qty}`
                 : needsDesign
                   ? 'Choose a design and size'
                   : 'Choose a size to order'}</p>

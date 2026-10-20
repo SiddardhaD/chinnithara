@@ -30,6 +30,9 @@ export const siteConfig = {
     descriptor: 'Exquisite Baby Clothing',
   },
 
+  /** Published-CSV URL of the Google Sheet "Stock" tab (see services/stock.ts). Empty = off. */
+  stockSheetUrl: (env.VITE_STOCK_SHEET_URL ?? '').trim(),
+
   /** Public site origin without trailing slash. Falls back to the browser origin. */
   siteUrl: (env.VITE_SITE_URL ?? '').replace(/\/$/, ''),
 

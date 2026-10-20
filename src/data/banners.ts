@@ -89,7 +89,15 @@ export const banners: Banner[] = [
     titleAccent: 'Endless wonders.',
     text: 'A babywear boutique for little ones up to two years old.',
     cta: { label: 'Discover our story', to: '/our-story' },
-    emblem: true,
+    image: {
+      src: '/images/banners/brand-sleep-1672.webp',
+      srcSet: '/images/banners/brand-sleep-960.webp 960w, /images/banners/brand-sleep-1672.webp 1672w',
+      alt: 'A baby sleeping peacefully on a cream muslin blanket beside a moon cushion, cotton flowers and a knitted bunny',
+      width: 1672,
+      height: 941,
+      objectPosition: '65% 50%',
+    },
+    layout: 'full',
     tone: 'cream',
   },
   {

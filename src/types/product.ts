@@ -52,6 +52,8 @@ export interface ProductDesign {
   colour: string;
   /** Index into `product.images` showing this design. */
   imageIndex: number;
+  /** Optional second photo of this design in use (e.g. a baby wrapped in the swaddle). */
+  lifestyleIndex?: number;
 }
 
 export interface Product {
