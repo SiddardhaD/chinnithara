@@ -187,4 +187,4 @@ The frontend reads products only through `src/services/catalog.ts` and the hooks
 6. **Secrets**: the Supabase *service-role* key and payment-gateway secrets must live only in server-side environments (Edge Functions or hosting secrets). Never put them in `VITE_*` variables.
 
 Until then, WhatsApp remains the ordering channel. The site never claims an order is confirmed, stock is reserved or payment is complete.
-# chinnithata
+# chinnithara

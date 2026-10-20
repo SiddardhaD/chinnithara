@@ -3,9 +3,9 @@
 // so React Router can handle links like /products/muslin-zip-frock.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "chinnithata",
+  "name": "chinnithara",
   "compatibility_date": "2026-10-01",
-  // Keep the free https://chinnithata.chinnithara-kids.workers.dev address switched on.
+  // Keep the free https://chinnithara.chinnithara-kids.workers.dev address switched on.
   "workers_dev": true,
   "assets": {
     "directory": "./dist",
