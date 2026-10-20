@@ -1,20 +1,20 @@
 import { ArrowRight, MessageCircle, Ruler, Shirt, Sparkles } from 'lucide-react';
 import { InstagramIcon as Instagram } from '../components/common/InstagramIcon';
 import { Link } from 'react-router';
-import { CollectionCard } from '../components/common/CollectionCard';
 import { GarmentIllustration } from '../components/common/GarmentIllustration';
 import { FullLogo } from '../components/common/Logo';
-import { CottonMotif, MoonMotif, SprigMotif } from '../components/common/Motifs';
+import { CottonMotif, SprigMotif } from '../components/common/Motifs';
 import { ResponsiveImage } from '../components/common/ResponsiveImage';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { HeroCarousel } from '../components/home/HeroCarousel';
 import { NewArrivalsTabs } from '../components/home/NewArrivalsTabs';
 import { ShopByAge } from '../components/home/ShopByAge';
+import { ShopByPrintStrip } from '../components/home/ShopByPrintStrip';
+import { ShopByStyle } from '../components/home/ShopByStyle';
 import { Testimonials } from '../components/home/Testimonials';
 import { ProductPrice } from '../components/product/ProductPrice';
 import { instagramUrl, siteConfig } from '../config/site';
 import { banners } from '../data/banners';
-import { prints } from '../data/prints';
 import { useProducts } from '../hooks/useCatalog';
 import { usePageMeta } from '../hooks/usePageMeta';
 
@@ -31,7 +31,6 @@ export function HomePage() {
   const { products } = useProducts();
   const featured = products.filter((p) => p.featured).slice(0, 4);
   const [hero, ...favourites] = featured;
-  const printsWithProducts = prints.filter((pr) => products.some((p) => p.print === pr.slug));
 
   return (
     <>
@@ -39,133 +38,9 @@ export function HomePage() {
       <ShopByAge products={products} />
       <NewArrivalsTabs products={products} />
 
-      {/* D. Featured collections */}
-      <section aria-labelledby="collections-title" className="container-page py-5 sm:py-7">
-        <SectionHeading
-          id="collections-title"
-          title="Shop by"
-          accent="Style"
-          action={
-            <Link to="/collections" className="link-underline text-sm font-semibold text-brown">
-              All collections →
-            </Link>
-          }
-        />
-        <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
-          <CollectionCard
-            to="/collections/muslin-co-ord-sets"
-            eyebrow="Matching sets"
-            title="Muslin Co-ord Sets"
-            shape="arch"
-            media={
-              <img
-                src="/images/products/muslin-co-ord-set-colour-print/aqua-penguins-600.webp"
-                alt="Aqua muslin co-ord set with a penguin print"
-                width={600}
-                height={600}
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover"
-              />
-            }
-          />
-          <CollectionCard
-            to="/collections/zip-frocks"
-            eyebrow="Easy on, easy off"
-            title="Zip Frocks"
-            className="lg:mt-14"
-            media={
-              <img
-                src="/images/products/muslin-zip-frock/aqua-toucans-600.webp"
-                alt="Aqua muslin zip frock with a toucan print"
-                width={600}
-                height={600}
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover"
-              />
-            }
-          />
-          <CollectionCard
-            to="/prints"
-            eyebrow="Birds, botanicals & more"
-            title="Playful Prints"
-            shape="arch"
-            media={
-              <img
-                src={`${frock}/print-detail-600.webp`}
-                alt="Close-up of the birds and botanicals muslin print"
-                width={600}
-                height={600}
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover"
-              />
-            }
-          />
-          <CollectionCard
-            to="/age"
-            eyebrow="Up to 2 years"
-            title="Shop by Age"
-            className="lg:mt-14"
-            media={
-              <div className="flex h-full w-full items-center justify-center bg-logo-cream">
-                <img
-                  src="/images/brand/chinnithara-moon-mark-240.webp"
-                  alt="The ChinniThara sleeping-baby-on-the-moon emblem"
-                  width={240}
-                  height={240}
-                  loading="lazy"
-                  className="w-3/4"
-                />
-              </div>
-            }
-          />
-        </div>
-      </section>
+      <ShopByStyle products={products} />
 
-      {/* F. Shop by print */}
-      <section aria-labelledby="prints-title" className="my-5 bg-sage-soft/60 py-9 sm:my-7 sm:py-12">
-        <div className="container-page grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
-          <div className="relative mx-auto w-full max-w-md">
-            <div className="overflow-hidden rounded-[var(--radius-arch)]">
-              <img
-                src={`${frock}/print-detail-600.webp`}
-                alt="Detail of the birds and botanicals print on soft white muslin"
-                width={600}
-                height={600}
-                loading="lazy"
-                decoding="async"
-                className="aspect-[4/5] w-full object-cover"
-              />
-            </div>
-            <MoonMotif className="absolute -top-5 -right-3 size-14 text-cocoa sm:-right-6" />
-          </div>
-          <div>
-            <p className="eyebrow mb-3">Shop by print</p>
-            <h2 id="prints-title" className="text-3xl sm:text-4xl lg:text-[2.4rem]">
-              Prints with a little story in them
-            </h2>
-            <p className="mt-4 max-w-lg text-lg text-ink/80">
-              Songbirds, sprigs and cheerful colour — every print is chosen to feel gentle, happy and easy to love.
-            </p>
-            <ul className="mt-8 divide-y divide-brown/15 border-y border-brown/15">
-              {printsWithProducts.map((print) => (
-                <li key={print.slug}>
-                  <Link
-                    to={`/prints/${print.slug}`}
-                    className="group flex items-center justify-between gap-4 py-4 font-display text-2xl text-brown hover:text-cocoa-deep"
-                  >
-                    {print.name}
-                    <ArrowRight className="size-5 shrink-0 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-sm text-ink/70">More prints are on their way — message us to see what’s new.</p>
-          </div>
-        </div>
-      </section>
+      <ShopByPrintStrip />
 
       {/* G. Featured Little Favourites (no sales data yet, so not labelled "Bestsellers") */}
       {hero && (

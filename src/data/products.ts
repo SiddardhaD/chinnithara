@@ -23,6 +23,7 @@ const frockDir = '/images/products/bird-garden-muslin-frock';
 const knotDir = '/images/products/muslin-knot-frock';
 const coordDir = '/images/products/muslin-co-ord-set-colour-print';
 const zipDir = '/images/products/muslin-zip-frock';
+const nappyDir = '/images/products/muslin-cloth-nappy';
 
 export const products: Product[] = [
   {
@@ -431,20 +432,56 @@ export const products: Product[] = [
     id: 'ct-013',
     slug: 'muslin-cloth-nappy',
     name: 'Muslin Cloth Nappy',
-    summary: 'A muslin cloth nappy with a 5-layer fabric insert, in assorted prints on a white base.',
+    summary: 'A white printed muslin cloth nappy with a 5-layer fabric insert and front tie strings, in 4 designs.',
     description: [
-      'A muslin cloth nappy with a 5-layer fabric insert, in assorted prints on a white base.',
-      'Designs vary by batch — message us on WhatsApp and we will share the prints currently available.',
+      'A muslin cloth nappy with a 5-layer fabric insert, stitched in a neat grid. Soft tie strings fasten at the front, and white binding finishes the edges.',
+      'Available in four sweet prints on a white base — choose your favourite below.',
     ],
-    images: [], // TODO: add genuine photos
+    images: [
+      {
+        src: `${nappyDir}/elephants-rainbows-1080.webp`,
+        srcSet: `${nappyDir}/elephants-rainbows-600.webp 600w, ${nappyDir}/elephants-rainbows-1080.webp 1080w`,
+        alt: 'White muslin cloth nappy with elephants, rainbows, moons and clouds print, tied at the front, laid flat',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${nappyDir}/happy-crabs-1080.webp`,
+        srcSet: `${nappyDir}/happy-crabs-600.webp 600w, ${nappyDir}/happy-crabs-1080.webp 1080w`,
+        alt: 'White muslin cloth nappy with yellow, orange and aqua crabs with little waves print, tied at the front, laid flat',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${nappyDir}/butterflies-1080.webp`,
+        srcSet: `${nappyDir}/butterflies-600.webp 600w, ${nappyDir}/butterflies-1080.webp 1080w`,
+        alt: 'White muslin cloth nappy with pink and blue butterflies with dots print, tied at the front, laid flat',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${nappyDir}/moons-clouds-1080.webp`,
+        srcSet: `${nappyDir}/moons-clouds-600.webp 600w, ${nappyDir}/moons-clouds-1080.webp 1080w`,
+        alt: 'White muslin cloth nappy with sleepy clouds, moons and stars print, tied at the front, laid flat',
+        width: 1080,
+        height: 1080,
+      },
+    ],
     category: 'essentials',
     style: 'Cloth nappy (5-layer insert)',
+    closure: 'tie',
+    designs: [
+      { id: 'elephants-rainbows', name: 'Elephants & Rainbows', colour: 'White', imageIndex: 0 },
+      { id: 'happy-crabs', name: 'Happy Crabs', colour: 'White', imageIndex: 1 },
+      { id: 'butterflies', name: 'Butterflies', colour: 'White', imageIndex: 2 },
+      { id: 'moons-clouds', name: 'Moons & Clouds', colour: 'White', imageIndex: 3 },
+    ],
     print: 'white-on-print',
-    colour: 'White base with assorted prints',
+    colour: 'White base with colourful prints',
     availableSizes: ['3-6M'], // TODO: invoice gives no size; 3–6 months is from the purchase plan
     fabric: 'Muslin',
     isNewArrival: true,
-    listingStatus: 'draft',
+    listingStatus: 'live',
     addedOn: '2026-10-18',
   },
 ];

@@ -101,7 +101,7 @@ export function CatalogBrowser({ products, hiddenFacets = [] }: { products: Prod
   );
 
   return (
-    <div className="lg:grid lg:grid-cols-[15rem_1fr] lg:gap-12">
+    <div className="lg:grid lg:grid-cols-[12.5rem_1fr] lg:gap-8">
       <aside className="hidden lg:block" aria-label="Filters">
         <div className="sticky top-36">{panel}</div>
       </aside>

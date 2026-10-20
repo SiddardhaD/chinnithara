@@ -39,7 +39,7 @@ export function GarmentIllustration({
   return (
     <div
       role="img"
-      aria-label={`Illustration of a ${category.replace(/-/g, ' ')} — ${label.toLowerCase()}`}
+      aria-label={`Illustration of a ${category.replace(/-/g, ' ')}${label ? ` — ${label.toLowerCase()}` : ''}`}
       className={cn(
         'relative flex h-full w-full flex-col items-center justify-center overflow-hidden',
         tones[tone % tones.length],
@@ -57,9 +57,9 @@ export function GarmentIllustration({
           strokeLinecap="round"
         />
       </svg>
-      <span className="mt-3 text-[0.68rem] font-semibold tracking-[0.08em] uppercase opacity-80">
-        {label}
-      </span>
+      {label && (
+        <span className="mt-3 text-[0.68rem] font-semibold tracking-[0.08em] uppercase opacity-80">{label}</span>
+      )}
     </div>
   );
 }

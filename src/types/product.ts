@@ -21,7 +21,7 @@ export type PrintSlug = 'birds-and-botanicals' | 'white-on-print' | 'dyed-on-pri
 
 export type PrintFamily = 'animal' | 'botanical' | 'rainbow' | 'assorted' | 'plain';
 
-export type Closure = 'zip' | 'button' | 'press-stud' | 'side-button' | 'shoulder-knot';
+export type Closure = 'zip' | 'button' | 'press-stud' | 'side-button' | 'shoulder-knot' | 'tie';
 
 /**
  * Only set when real stock data exists. When undefined, the site asks customers to

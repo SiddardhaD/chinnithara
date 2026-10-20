@@ -29,16 +29,16 @@ export function FilterPanel({
   const facets = (Object.keys(facetTitles) as FacetKey[]).filter((k) => !hidden.includes(k) && options[k].length > 0);
 
   return (
-    <div className="space-y-7">
+    <div className="space-y-5">
       {facets.map((key) => (
         <fieldset key={key}>
-          <legend className="eyebrow mb-3">{facetTitles[key]}</legend>
-          <ul className="space-y-1">
+          <legend className="eyebrow mb-1.5">{facetTitles[key]}</legend>
+          <ul>
             {options[key].map((opt) => {
               const checked = (filters[key] as string[]).includes(opt.value);
               return (
                 <li key={opt.value}>
-                  <label className="group flex min-h-10 cursor-pointer items-center gap-3 rounded-lg px-1 text-[0.95rem] text-ink hover:text-brown has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-cocoa-deep">
+                  <label className="group flex min-h-9 cursor-pointer items-center gap-2.5 rounded-lg px-1 text-[0.92rem] text-ink hover:text-brown has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-cocoa-deep">
                     <input
                       type="checkbox"
                       checked={checked}
@@ -48,7 +48,7 @@ export function FilterPanel({
                     <span
                       aria-hidden="true"
                       className={cn(
-                        'grid size-5 shrink-0 place-items-center rounded-md border transition',
+                        'grid size-[1.1rem] shrink-0 place-items-center rounded-[5px] border transition',
                         checked ? 'border-brown bg-brown text-ivory' : 'border-brown/35 bg-white group-hover:border-brown',
                       )}
                     >

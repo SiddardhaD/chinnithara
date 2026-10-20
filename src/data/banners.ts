@@ -8,7 +8,6 @@ import type { Banner } from '../types/product';
  * /public/images/banners/ and set `image` on a slide. Slides without an image show a
  * designed panel (illustration or emblem). Never use photos of products you don't stock.
  */
-const frock = '/images/products/bird-garden-muslin-frock';
 
 export const banners: Banner[] = [
   {
@@ -48,37 +47,40 @@ export const banners: Banner[] = [
     tone: 'cream',
   },
   {
-    id: 'hero-frock',
-    eyebrow: 'Exquisite Baby Clothing',
-    title: 'Little outfits.',
-    titleAccent: 'Big little moments.',
-    text: 'Thoughtfully chosen babywear in soft muslin and delightful prints.',
-    cta: { label: 'Explore the collection', to: '/shop' },
+    id: 'zip-frocks',
+    eyebrow: 'New · 12–24 months',
+    title: 'Twirl-ready',
+    titleAccent: 'zip frocks',
+    text: 'Soft pleats, a rounded yoke and an easy back zip — in five sweet designs.',
+    cta: { label: 'Shop zip frocks', to: '/products/muslin-zip-frock' },
     image: {
-      src: `${frock}/flatlay-wide-1600.webp`,
-      srcSet: `${frock}/flatlay-wide-960.webp 960w, ${frock}/flatlay-wide-1600.webp 1600w`,
-      alt: 'The Bird Garden muslin frock laid flat beside white daisies on a wooden table',
-      width: 1600,
-      height: 1066,
-      objectPosition: '62% 50%',
+      src: '/images/banners/zip-frocks-1672.webp',
+      srcSet: '/images/banners/zip-frocks-960.webp 960w, /images/banners/zip-frocks-1672.webp 1672w',
+      alt: 'Three laughing toddler girls in aqua toucan, lilac bunny and mustard leaf muslin zip frocks, playing on a cream rug',
+      width: 1672,
+      height: 941,
+      objectPosition: '75% 50%',
     },
-    tone: 'linen',
+    layout: 'full',
+    tone: 'cream',
   },
   {
-    id: 'co-ords',
-    eyebrow: 'Matching sets',
-    title: 'Muslin co-ord sets',
-    text: 'Snap-front tops with pull-on shorts — five sweet colour-print designs for 18–24 months.',
-    cta: { label: 'Shop co-ord sets', to: '/collections/muslin-co-ord-sets' },
+    id: 'rompers',
+    eyebrow: 'New · 3–6 months',
+    title: 'Snuggly muslin',
+    titleAccent: 'rompers',
+    text: 'Easy all-in-one rompers on a soft white base with playful little prints.',
+    cta: { label: 'Shop rompers', to: '/collections/jablas-and-rompers' },
     image: {
-      src: '/images/products/muslin-co-ord-set-colour-print/lilac-bunnies-1080.webp',
-      srcSet:
-        '/images/products/muslin-co-ord-set-colour-print/lilac-bunnies-600.webp 600w, /images/products/muslin-co-ord-set-colour-print/lilac-bunnies-1080.webp 1080w',
-      alt: 'Lilac muslin co-ord set with a bunny print: sleeveless snap-front top and shorts',
-      width: 1080,
-      height: 1080,
+      src: '/images/banners/rompers-1672.webp',
+      srcSet: '/images/banners/rompers-960.webp 960w, /images/banners/rompers-1672.webp 1672w',
+      alt: 'Three smiling babies lying on a cream blanket in white printed muslin rompers',
+      width: 1672,
+      height: 941,
+      objectPosition: '70% 50%',
     },
-    tone: 'sage',
+    layout: 'full',
+    tone: 'cream',
   },
   {
     id: 'brand',
@@ -93,10 +95,19 @@ export const banners: Banner[] = [
   {
     id: 'essentials',
     eyebrow: 'Baby care',
-    title: 'Muslin essentials',
+    title: 'Muslin',
+    titleAccent: 'essentials',
     text: 'Swaddles, bath and hooded towels, wash cloths and cloth nappies.',
     cta: { label: 'Shop essentials', to: '/collections/muslin-essentials' },
-    illustration: 'essentials',
-    tone: 'blush',
+    image: {
+      src: '/images/banners/essentials-1672.webp',
+      srcSet: '/images/banners/essentials-960.webp 960w, /images/banners/essentials-1672.webp 1672w',
+      alt: 'Printed muslin swaddles, a hooded towel and colourful wash cloths arranged on a jute mat',
+      width: 1672,
+      height: 941,
+      objectPosition: '70% 50%',
+    },
+    layout: 'full',
+    tone: 'cream',
   },
 ];

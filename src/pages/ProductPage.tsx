@@ -1,6 +1,6 @@
 import { Info, Minus, Plus, Truck, WashingMachine } from 'lucide-react';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { Link, useParams } from 'react-router';
+import { Link, useParams, useSearchParams } from 'react-router';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { WhatsAppButton } from '../components/common/WhatsAppButton';
@@ -40,6 +40,7 @@ const closureText: Record<Closure, string> = {
   'press-stud': 'Press studs',
   'side-button': 'Side buttons',
   'shoulder-knot': 'Shoulder ties',
+  tie: 'Tie strings',
 };
 
 function InfoBlock({ icon, title, children }: { icon: ReactNode; title: string; children: ReactNode }) {
@@ -61,6 +62,9 @@ function InfoBlock({ icon, title, children }: { icon: ReactNode; title: string; 
 
 export function ProductPage() {
   const { slug } = useParams();
+  const [searchParams] = useSearchParams();
+  const designParam = searchParams.get('design');
+  const [triedToOrder, setTriedToOrder] = useState(false);
   const { product, related } = useProduct(slug);
   const [size, setSize] = useState<SizeCode | null>(null);
   const [quantity, setQuantity] = useState(1);
@@ -82,15 +86,19 @@ export function ProductPage() {
     noindex: !product,
   });
 
-  // Reset selections when navigating between products. A size is never preselected —
-  // customers choose it explicitly before an order enquiry can be generated.
+  // Reset selections when navigating between products. The design defaults to the one in
+  // the link (?design=…) or the first design; the size is always chosen by the customer.
   useEffect(() => {
+    const initialDesign =
+      product?.designs?.find((d) => d.id === designParam) ?? product?.designs?.[0] ?? null;
     setSize(null);
-    setDesign(null);
+    setDesign(initialDesign);
     setDesignError('');
-    setGalleryIndex(0);
+    setTriedToOrder(false);
+    setGalleryIndex(initialDesign?.imageIndex ?? 0);
     setQuantity(1);
     setSizeError('');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [product]);
 
   // Mobile: show the sticky order bar only once the main CTA scrolls out of view.
@@ -110,9 +118,11 @@ export function ProductPage() {
   const needsDesign = !!product.designs?.length;
   const ready = !!size && (!needsDesign || !!design);
   const message = ready && size ? buildOrderMessage(product, size, quantity, design) : null;
+  const missingChoices = [needsDesign && !design && 'a design', !size && 'a size'].filter(Boolean).join(' and ');
   const ctaLabel = soldOut ? 'Ask about restocking' : 'Order on WhatsApp';
 
   const requireSize = () => {
+    setTriedToOrder(true);
     // Point to the first missing choice: design, then size.
     if (needsDesign && !design) {
       setDesignError('Please choose a design first.');
@@ -251,6 +261,11 @@ export function ProductPage() {
 
               <div ref={ctaRef}>
                 <WhatsAppButton message={message} label={ctaLabel} onNotReady={requireSize} className="w-full" />
+                {triedToOrder && missingChoices && (
+                  <p role="alert" className="mt-2 rounded-xl bg-blush-soft px-3 py-2 text-sm font-semibold text-cocoa-deep">
+                    Please choose {missingChoices} to place your order.
+                  </p>
+                )}
                 <p className="mt-3 text-xs leading-relaxed text-ink/70">
                   This opens WhatsApp with your selection filled in. Your order is confirmed only after we reply with
                   availability, price and delivery details.
