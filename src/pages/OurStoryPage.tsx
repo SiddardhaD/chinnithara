@@ -6,8 +6,8 @@ import { usePageMeta } from '../hooks/usePageMeta';
 
 /**
  * Our Story images. Replace the paths when new photos are ready:
- *  • hero  — wide 16:9 mood photo, left third kept empty for the title (public/images/story/)
- *  • calm  — generic calm mood photo (no logo, no product), e.g. a moonlit nursery corner
+ *  • hero: a wide 16:9 mood photo, left third kept empty for the title (public/images/story/)
+ *  • calm: a generic calm mood photo (no logo, no product), e.g. a moonlit nursery corner
  */
 const storyImages = {
   hero: {
@@ -25,7 +25,7 @@ const values = [
   {
     icon: MoonMotif,
     title: 'Comfort first',
-    text: 'Easy cuts, simple closures and soft muslin, chosen with little bodies — and busy parents — in mind.',
+    text: 'Easy cuts, simple closures and soft muslin, chosen with little bodies and busy parents in mind.',
   },
   {
     icon: CottonMotif,
@@ -35,7 +35,7 @@ const values = [
   {
     icon: CloudMotif,
     title: 'A personal touch',
-    text: 'Every message is answered by a real person on WhatsApp — from sizing to prints.',
+    text: 'A real person answers every WhatsApp message, from sizing questions to prints.',
   },
 ];
 
@@ -91,7 +91,7 @@ export function OurStoryPage() {
         <div className="mx-auto max-w-3xl text-center">
           <MoonMotif className="mx-auto mb-4 size-10 text-gold" />
           <p className="font-display text-xl leading-snug font-bold text-brown sm:text-2xl">
-            We believe the smallest outfits carry the biggest memories — first smiles, first outings, first birthdays.
+            We believe the smallest outfits carry the biggest memories: first smiles, first outings, first birthdays.
           </p>
           <p className="mt-4 text-ink/75 sm:text-lg">
             ChinniThara brings together soft muslin co-ord sets, pretty frocks, jablas and everyday baby essentials in
@@ -137,7 +137,7 @@ export function OurStoryPage() {
             <div className="mt-3 space-y-3 text-ink/75">
               <p>
                 <strong className="font-semibold text-ink">Chinni</strong> means “little” in Telugu. Our logo shows a
-                baby sleeping peacefully on a golden crescent moon, surrounded by soft clouds and cotton flowers —
+                baby sleeping peacefully on a golden crescent moon, surrounded by soft clouds and cotton flowers.
                 restful, warm and full of quiet wonder.
               </p>
               <p>

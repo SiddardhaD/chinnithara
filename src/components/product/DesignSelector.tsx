@@ -23,7 +23,7 @@ export const DesignSelector = forwardRef<HTMLFieldSetElement, Props>(function De
   return (
     <fieldset ref={ref} tabIndex={-1} aria-describedby={error ? errorId : undefined} className="focus:outline-none">
       <legend className="mb-3 text-sm font-semibold text-brown">
-        Design{value ? <span className="font-normal text-ink/75"> — {value.name}</span> : ` (${designs.length})`}
+        Design{value ? <span className="font-normal text-ink/75">: {value.name}</span> : ` (${designs.length})`}
       </legend>
       <div className="flex flex-wrap gap-3">
         {designs.map((design) => {

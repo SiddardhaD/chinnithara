@@ -7,7 +7,7 @@ export function ShopPage() {
   usePageMeta({
     title: 'Shop All Babywear',
     description:
-      'Browse the full ChinniThara collection — muslin co-ord sets, frocks, jablas, rompers and muslin essentials for little ones up to 2 years.',
+      'Browse the full ChinniThara collection of muslin co-ord sets, frocks, jablas, rompers and muslin essentials for little ones up to 2 years.',
     path: '/shop',
   });
   const { products } = useProducts();

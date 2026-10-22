@@ -2,7 +2,7 @@
  * Central business configuration.
  *
  * Contact values come from environment variables (see `.env.example`) so they can be
- * changed without touching code. Everything here is PUBLIC — never put secrets in it.
+ * changed without touching code. Everything here is public, so never put secrets in it.
  */
 
 const env = import.meta.env;

@@ -37,10 +37,10 @@ function SlideMedia({ banner, priority }: { banner: Banner; priority: boolean })
     return (
       <div className="flex h-full w-full items-center justify-center bg-logo-cream">
         <img
-          src="/images/brand/chinnithara-moon-mark-240.webp"
+          src="/images/brand/chinnithara-emblem-480.webp"
           alt="The ChinniThara emblem: a baby asleep on a golden crescent moon"
-          width={240}
-          height={240}
+          width={480}
+          height={340}
           loading={priority ? 'eager' : 'lazy'}
           className="h-[80%] w-auto"
         />

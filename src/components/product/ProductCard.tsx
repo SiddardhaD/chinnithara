@@ -26,7 +26,7 @@ export function ProductCard({ product, index = 0, priority = false }: { product:
       <Link
         to={href}
         className="relative block aspect-square overflow-hidden rounded-[var(--radius-soft)] bg-ivory-deep"
-        aria-label={`${product.name} — view details`}
+        aria-label={`View details for ${product.name}`}
       >
         {primary ? (
           <>

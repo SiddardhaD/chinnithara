@@ -170,7 +170,7 @@ export function CatalogBrowser({ products, hiddenFacets = [] }: { products: Prod
             >
               {chip.label}
               <X className="size-3.5" aria-hidden="true" />
-              <span className="sr-only">— remove filter</span>
+              <span className="sr-only">, remove filter</span>
             </button>
           ))}
         </div>

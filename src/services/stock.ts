@@ -5,7 +5,7 @@
  *   product_slug | design_id | size | quantity
  * (design_id and size may be blank for products without designs / with one size).
  * That ONE tab is published as CSV (File → Share → Publish to web → Stock → CSV) and its
- * URL is set in VITE_STOCK_SHEET_URL. Only stock numbers are public — never sales or money.
+ * URL is set in VITE_STOCK_SHEET_URL. Only stock numbers are public, never sales or money.
  *
  * If the URL isn't set or the sheet can't be loaded, the site behaves exactly as before
  * ("Availability confirmed on WhatsApp").

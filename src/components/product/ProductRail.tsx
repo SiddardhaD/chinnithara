@@ -16,7 +16,7 @@ export function ProductRail({ products, label }: { products: Product[]; label: s
       <ul
         ref={trackRef}
         aria-label={label}
-        className="scroll-row -mx-4 flex gap-4 overflow-x-auto [contain:paint] px-4 py-1 sm:-mx-6 sm:gap-6 sm:px-6 lg:mx-0 lg:px-0"
+        className="scroll-row -mx-4 flex gap-4 overflow-x-auto [contain:paint] px-4 scroll-px-4 py-1 sm:-mx-6 sm:gap-6 sm:px-6 sm:scroll-px-6 lg:mx-0 lg:px-0 lg:scroll-px-0"
       >
         {products.map((product, i) => (
           <li key={product.id} className="w-[64%] shrink-0 sm:w-[40%] md:w-[30%] lg:w-[23%] xl:w-[19%]">

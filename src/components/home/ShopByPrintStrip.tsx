@@ -12,7 +12,7 @@ export function ShopByPrintStrip() {
         align="center"
         description="Find the little print they’ll love."
       />
-      <ul className="scroll-row -mx-4 flex gap-4 overflow-x-auto [contain:paint] px-4 pt-1 pb-2 sm:gap-6 lg:mx-0 lg:grid lg:grid-cols-15 lg:gap-1.5 lg:overflow-visible lg:px-0">
+      <ul className="scroll-row -mx-4 flex gap-4 overflow-x-auto [contain:paint] px-4 scroll-px-4 pt-1 pb-2 sm:gap-6 lg:mx-0 lg:grid lg:grid-cols-15 lg:gap-1.5 lg:overflow-visible lg:px-0">
         {swatches.map((s) => (
           <li key={s.q} className="shrink-0">
             <Link to={`/shop?q=${encodeURIComponent(s.q)}`} className="group flex w-20 flex-col items-center text-center sm:w-24 lg:w-auto">

@@ -9,7 +9,7 @@ import { WhatsAppButton } from '../common/WhatsAppButton';
 
 /**
  * Real customer reviews from `data/testimonials.ts`. While there are none, an honest
- * invitation to share feedback is shown instead — reviews are never made up.
+ * invitation to share feedback is shown instead. We never make reviews up.
  */
 export function Testimonials() {
   if (!testimonials.length) {
@@ -38,7 +38,7 @@ export function Testimonials() {
   return (
     <section aria-labelledby="reviews-title" className="container-page py-5 sm:py-7">
       <SectionHeading id="reviews-title" title="Little words from" accent="our families" align="center" />
-      <ul className="scroll-row -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-3">
+      <ul className="scroll-row -mx-4 flex gap-4 overflow-x-auto px-4 scroll-px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-3">
         {testimonials.map((t) => {
           const productName = t.productSlug ? getProductName(t.productSlug) : undefined;
           return (

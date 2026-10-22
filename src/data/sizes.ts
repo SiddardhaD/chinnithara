@@ -1,7 +1,7 @@
 import type { AgeGroup, SizeCode, SizeInfo } from '../types/product';
 
 /**
- * Size labels used across the catalogue. Garment measurements are not listed yet —
+ * Size labels used across the catalogue. Garment measurements aren't listed yet;
  * add them here once confirmed with the supplier (see README → "Missing information").
  */
 export const sizes: SizeInfo[] = [

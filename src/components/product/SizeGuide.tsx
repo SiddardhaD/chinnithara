@@ -5,7 +5,7 @@ import { cn } from '../../utils/format';
 
 /**
  * Age-based size guide. Garment measurements are intentionally not shown until they are
- * confirmed — add them to `data/sizes.ts` when available.
+ * confirmed. Add them to `data/sizes.ts` when they're available.
  */
 export function SizeGuide({ highlight = [] }: { highlight?: SizeCode[] }) {
   return (
@@ -44,7 +44,7 @@ export function SizeGuide({ highlight = [] }: { highlight?: SizeCode[] }) {
           </tbody>
         </table>
         <p className="mt-3 text-xs text-ink/75">
-          Every baby grows at their own pace — if your little one is between sizes, we suggest sizing up.
+          Every baby grows at their own pace. If your little one is between sizes, we suggest sizing up.
           Detailed garment measurements are available on request over WhatsApp.
         </p>
       </div>

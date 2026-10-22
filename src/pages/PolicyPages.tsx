@@ -6,7 +6,7 @@ import { siteConfig } from '../config/site';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 /**
- * Policy pages. Text inside <Tbc> marks details the owner must confirm before launch —
+ * Policy pages. Text inside <Tbc> marks details the owner must confirm before launch.
  * search the codebase for "<Tbc" to find them all, then set `policiesAreDraft` to false.
  */
 const LAST_UPDATED = '18 October 2026';
@@ -78,7 +78,7 @@ export function ShippingPage() {
       <h2>Delivery charges</h2>
       <p>
         Delivery charges depend on your location and the size of your order. We always tell you the delivery charge on
-        WhatsApp before you pay — there are no hidden costs.
+        WhatsApp before you pay. There are no hidden costs.
       </p>
 
       <h2>Dispatch and delivery times</h2>
@@ -167,7 +167,7 @@ export function PrivacyPage() {
       <h3>On this website</h3>
       <p>
         This website does not have user accounts, a checkout or analytics. Text you type into the contact form or
-        product options is only used to prepare a WhatsApp message on your own device — it is not sent to or stored by
+        product options is only used to prepare a WhatsApp message on your own device. It is never sent to or stored by
         this website.
       </p>
       <p>
@@ -176,7 +176,7 @@ export function PrivacyPage() {
       </p>
       <h3>When you contact us</h3>
       <p>
-        When you message us on WhatsApp, Instagram or email, we receive the details you choose to share — such as your
+        When you message us on WhatsApp, Instagram or email, we receive the details you choose to share, such as your
         name, phone number, delivery address and order details. We use this information only to answer your questions,
         process and deliver your order, and provide after-sales support.
       </p>
@@ -184,15 +184,15 @@ export function PrivacyPage() {
       <h2>Third-party services</h2>
       <ul>
         <li>
-          <strong>WhatsApp</strong> (Meta) — used for order enquiries. Messages are subject to WhatsApp’s own privacy
+          <strong>WhatsApp</strong> (Meta), used for order enquiries. Messages are subject to WhatsApp’s own privacy
           policy.
         </li>
         <li>
-          <strong>Google Fonts</strong> — our typefaces are loaded from Google’s servers, which receive your IP address
+          <strong>Google Fonts</strong>: our typefaces are loaded from Google’s servers, which receive your IP address
           when the fonts are downloaded.
         </li>
         <li>
-          <strong>Courier partners</strong> — we share your name, address and phone number with the courier only to
+          <strong>Courier partners</strong>: we share your name, address and phone number with the courier only to
           deliver your order.
         </li>
       </ul>
@@ -245,7 +245,7 @@ export function TermsPage() {
       <ul>
         <li>We describe our products as accurately as we can. Colours may look slightly different on different screens.</li>
         <li>Assorted prints vary by batch; we’ll share the available designs before you order.</li>
-        <li>Size guides are approximate — babies grow at different rates.</li>
+        <li>Size guides are approximate, because babies grow at different rates.</li>
       </ul>
 
       <h2>Prices and payment</h2>
@@ -260,7 +260,7 @@ export function TermsPage() {
       <h2>Orders</h2>
       <p>
         Sending a WhatsApp enquiry does not create an order or reserve stock. An order is accepted only when we confirm
-        it and receive your payment. We may decline an order — for example, if an item is no longer available — in which
+        it and receive your payment. We may decline an order, for example if an item is no longer available, in which
         case any payment received will be refunded in full.
       </p>
 

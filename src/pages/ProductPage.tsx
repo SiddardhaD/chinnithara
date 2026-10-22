@@ -23,7 +23,7 @@ import { NotFoundPage } from './NotFoundPage';
 
 const MAX_QTY = 10;
 
-/** General guidance — shown only when a product has no specific care instructions. */
+/** General guidance, shown only when a product has no care instructions of its own. */
 const generalMuslinCare = [
   'Gentle machine or hand wash in cold water with similar colours.',
   'Use a mild detergent; avoid bleach.',
@@ -231,7 +231,7 @@ export function ProductPage() {
                 }
               >
                 {availabilityLabel}
-                {productLevel?.tone === 'out' && ' — all designs'}
+                {productLevel?.tone === 'out' && ' in all designs'}
               </dd>
             </dl>
 
@@ -331,7 +331,7 @@ export function ProductPage() {
                   </ul>
                 ) : (
                   <>
-                    <p className="mb-2">General care tips for muslin — always check the garment label first:</p>
+                    <p className="mb-2">General care tips for muslin. Always check the garment label first:</p>
                     <ul className="list-disc space-y-1 pl-4">
                       {generalMuslinCare.map((c) => (
                         <li key={c}>{c}</li>
@@ -365,7 +365,7 @@ export function ProductPage() {
         </section>
       )}
 
-      {/* Mobile sticky CTA — appears only after the main button scrolls away. */}
+      {/* Mobile sticky order bar. It appears once the main button scrolls out of view. */}
       <div
         className={`safe-bottom fixed inset-x-0 bottom-0 z-30 border-t border-brown/10 bg-white/95 px-4 pt-3 backdrop-blur-md transition-transform duration-300 lg:hidden ${
           showStickyCta ? 'translate-y-0' : 'pointer-events-none translate-y-full'

@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'Not sure about the size?',
-    a: 'Our size guide lists the age range for every size. If your little one is between sizes, we usually suggest sizing up — and we’re happy to help you choose.',
+    a: 'Our size guide lists the age range for every size. If your little one is between sizes, we usually suggest sizing up, and we’re always happy to help you choose.',
   },
 ];
 
@@ -51,7 +51,7 @@ export function ContactPage() {
         crumbs={[{ label: 'Contact' }]}
         eyebrow="Say hello"
         title="We’d love to hear from you"
-        description="Questions about sizes, prints or an order? Message us — a real person will get back to you."
+        description="Questions about sizes, prints or an order? Message us and a real person will get back to you."
       />
 
       <div className="container-page grid gap-10 py-8 sm:py-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">

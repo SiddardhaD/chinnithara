@@ -28,7 +28,7 @@ function CollectionCover({ items, index }: { items: Product[]; index: number }) 
 export function CollectionsIndexPage() {
   usePageMeta({
     title: 'Shop by Style',
-    description: 'Explore ChinniThara collections — muslin co-ord sets, frocks, zip frocks, jablas and rompers.',
+    description: 'Explore ChinniThara collections: muslin co-ord sets, frocks, jablas, rompers and essentials.',
     path: '/collections',
   });
   const { products } = useProducts();
@@ -39,7 +39,7 @@ export function CollectionsIndexPage() {
         crumbs={[{ label: 'Shop by Style' }]}
         eyebrow="Collections"
         title="Shop by style"
-        description="From matching co-ords to twirl-ready frocks — choose a style to begin."
+        description="From matching co-ords to twirl-ready frocks. Choose a style to begin."
       />
       <div className="container-page py-6 sm:py-8">
         <ul className="grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-6 lg:grid-cols-4">

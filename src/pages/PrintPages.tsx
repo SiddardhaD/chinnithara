@@ -19,7 +19,7 @@ function previewFor(product: Product, q: string) {
 export function PrintsIndexPage() {
   usePageMeta({
     title: 'Shop by Print',
-    description: 'Discover ChinniThara babywear by print — penguins, bunnies, peaches, mangoes, toucans, butterflies and more.',
+    description: 'Discover ChinniThara babywear by print: penguins, bunnies, peaches, mangoes, toucans, butterflies and more.',
     path: '/prints',
   });
   const { products } = useProducts();
@@ -100,7 +100,7 @@ export function PrintsIndexPage() {
           ))}
         </ul>
         <p className="mt-6 text-center text-sm text-ink/60">
-          New prints arrive with every batch —{' '}
+          New prints arrive with every batch, so{' '}
           <Link to="/contact" className="font-semibold text-cocoa-deep underline underline-offset-2">
             message us
           </Link>{' '}

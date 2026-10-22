@@ -1,16 +1,16 @@
 import type { Product } from '../types/product';
 
 /**
- * ChinniThara product catalogue — the single source of product content.
+ * The ChinniThara product catalogue. All product content lives here.
  *
  * Sources:
- *  • `muslin-knot-frock` — owner-supplied photos of the five knot-frock designs (invoice: Frock Knot,
+ *  • `muslin-knot-frock`: owner-supplied photos of the five knot-frock designs (invoice: Frock Knot,
  *    dyed on print, assorted, size 3–6).
- *  • `muslin-co-ord-set-colour-print` — owner-supplied photos of five co-ord designs (invoice: Co-ord Set,
+ *  • `muslin-co-ord-set-colour-print`: owner-supplied photos of five co-ord designs (invoice: Co-ord Set,
  *    dyed on print, assorted, size 18–24).
- *  • `muslin-zip-frock` — owner-supplied photos of five zip-frock designs (invoice: Frock Zip,
+ *  • `muslin-zip-frock`: owner-supplied photos of five zip-frock designs (invoice: Frock Zip,
  *    dyed on print, assorted, size 12–24).
- *  • All `draft` listings — product, pattern (white/dyed on print), design and size from the
+ *  • All `draft` listings: product, pattern (white/dyed on print), design and size from the
  *    supplier invoice (all muslin, assorted designs). They have no photos or retail prices yet.
  *
  * Rules (see README):
@@ -153,11 +153,11 @@ export const products: Product[] = [
   {
     id: 'ct-002',
     slug: 'muslin-co-ord-set-white-print',
-    name: 'Muslin Co-ord Set — White Print',
+    name: 'White Print Muslin Co-ord Set',
     summary: 'A matching muslin top and bottom set in assorted prints on a white base.',
     description: [
       'A matching muslin top and bottom set in assorted prints on a fresh white base.',
-      'Designs vary by batch — message us on WhatsApp and we will share the prints currently available.',
+      'Designs change with each batch. Message us on WhatsApp and we will share the prints we have right now.',
     ],
     images: [], // TODO: add genuine photos
     category: 'co-ord-sets',
@@ -174,11 +174,11 @@ export const products: Product[] = [
   {
     id: 'ct-003',
     slug: 'muslin-co-ord-set-colour-print',
-    name: 'Muslin Co-ord Set — Colour Print',
+    name: 'Colour Print Muslin Co-ord Set',
     summary: 'A sleeveless snap-front muslin top with matching elastic-waist shorts, in 5 designs.',
     description: [
       'A matching muslin set: a sleeveless V-neck top that fastens with press studs down the front, and easy pull-on shorts with an elastic waist. Neat matching binding finishes the neck and armholes.',
-      'Available in five designs on soft coloured bases — choose your favourite below.',
+      'Available in five designs on soft coloured bases. Pick your favourite below.',
     ],
     images: [
       {
@@ -242,7 +242,7 @@ export const products: Product[] = [
     name: 'Boxy Muslin Co-ord Set',
     summary: 'A relaxed, boxy sleeveless muslin top with matching elastic-waist shorts.',
     description: [
-      'A relaxed, boxy-fit sleeveless top with a round neck, paired with easy pull-on shorts with an elastic waist — all in soft crinkled muslin with neat white binding.',
+      'A relaxed, boxy-fit sleeveless top with a round neck, paired with easy pull-on shorts with an elastic waist. Made in soft crinkled muslin with neat white binding.',
       'Shown in our Happy Sunshine print: suns, hearts, cherries, flowers and little “HAPPY” words on a white base. More designs coming soon.',
     ],
     images: [
@@ -279,7 +279,7 @@ export const products: Product[] = [
     summary: 'A sleeveless A-line muslin frock with soft front pleats and an easy back zip, in 5 designs.',
     description: [
       'A sleeveless A-line muslin frock with a rounded yoke, soft pleats falling from the neckline and a zip at the back for quick, easy dressing. Neat matching binding finishes the neck and armholes.',
-      'Available in five designs — choose your favourite below.',
+      'Available in five designs. Pick your favourite below.',
     ],
     images: [
       {
@@ -344,7 +344,7 @@ export const products: Product[] = [
     summary: 'A sleeveless muslin frock with tie-up shoulder straps and a gathered skirt, in 5 designs.',
     description: [
       'A sweet sleeveless muslin frock with shoulder straps that tie into little knots, a gathered skirt and neat matching binding around the neck and armholes.',
-      'Available in five designs on soft coloured bases — choose your favourite below.',
+      'Available in five designs on soft coloured bases. Pick your favourite below.',
     ],
     images: [
       {
@@ -408,8 +408,8 @@ export const products: Product[] = [
     name: 'Side-Button Muslin Jabla',
     summary: 'A sleeveless white muslin jabla that fastens with wooden-look buttons down the side, in 3 designs.',
     description: [
-      'A classic sleeveless muslin jabla with a crossover front that fastens with buttons down the side — no pulling over little heads. Neat white binding finishes the neck and armholes.',
-      'Available in three sweet prints on a white base — choose your favourite below.',
+      'A classic sleeveless muslin jabla with a crossover front that fastens with buttons down the side, so nothing goes over little heads. Neat white binding finishes the neck and armholes.',
+      'Available in three sweet prints on a white base. Pick your favourite below.',
     ],
     images: [
       {
@@ -479,7 +479,7 @@ export const products: Product[] = [
     summary: 'A sleeveless white muslin romper with snaps down the front and at the legs, in 2 designs.',
     description: [
       'An easy all-in-one sleeveless romper in soft crinkled muslin, with a V-neck, snaps all the way down the front and snaps between the legs for quick nappy changes. Neat white binding finishes the edges.',
-      'Available in two playful prints on a white base — choose your favourite below.',
+      'Available in two playful prints on a white base. Pick your favourite below.',
     ],
     images: [
       {
@@ -533,8 +533,8 @@ export const products: Product[] = [
     name: 'Muslin Swaddle',
     summary: 'A generous 100 × 100 cm muslin swaddle in soft crinkled muslin, in 4 designs.',
     description: [
-      'A generous 100 × 100 cm muslin swaddle with a soft, crinkled texture — big enough to wrap your little one snugly.',
-      'Available in four designs on soft coloured bases — choose your favourite below.',
+      'A generous 100 × 100 cm muslin swaddle with a soft, crinkled texture, big enough to wrap your little one snugly.',
+      'Available in four designs on soft coloured bases. Pick your favourite below.',
     ],
     images: swaddleImages,
     category: 'essentials',
@@ -561,11 +561,11 @@ export const products: Product[] = [
     name: 'Muslin Bath Towel',
     summary: 'A large 75 × 150 cm muslin bath towel in the same four prints as our swaddles.',
     description: [
-      'A large 75 × 150 cm bath towel in soft, crinkled muslin — roomy enough to wrap your little one after bath time, and it grows with them.',
-      'Made in the same four prints as our swaddles — choose your favourite below.',
+      'A large 75 × 150 cm bath towel in soft, crinkled muslin. Roomy enough to wrap your little one after bath time, and it grows with them.',
+      'Made in the same four prints as our swaddles. Pick your favourite below.',
     ],
     images: bathTowelImages,
-    photoNote: 'Photos show our 100 × 100 cm swaddle in the same prints — the bath towel is larger, at 75 × 150 cm.',
+    photoNote: 'Photos show our 100 × 100 cm swaddle in the same prints. The bath towel is larger, at 75 × 150 cm.',
     category: 'essentials',
     style: 'Bath towel',
     sizeSiblings: ['muslin-swaddle'],
@@ -632,8 +632,8 @@ export const products: Product[] = [
     name: 'Muslin Wash Cloth',
     summary: 'A soft 27 × 27 cm muslin wash cloth with a handy hanging loop, in 5 designs.',
     description: [
-      'A soft 27 × 27 cm muslin wash cloth with a little hanging loop at one corner — handy for bath time, wiping little faces and everyday clean-ups.',
-      'Available in five designs on soft coloured bases — choose your favourite below.',
+      'A soft 27 × 27 cm muslin wash cloth with a little hanging loop at one corner. Handy for bath time, wiping little faces and everyday clean-ups.',
+      'Available in five designs on soft coloured bases. Pick your favourite below.',
     ],
     images: [
       {
@@ -696,7 +696,7 @@ export const products: Product[] = [
     summary: 'A white printed muslin cloth nappy with a 5-layer fabric insert and front tie strings, in 4 designs.',
     description: [
       'A muslin cloth nappy with a 5-layer fabric insert, stitched in a neat grid. Soft tie strings fasten at the front, and white binding finishes the edges.',
-      'Available in four sweet prints on a white base — choose your favourite below.',
+      'Available in four sweet prints on a white base. Pick your favourite below.',
     ],
     images: [
       {

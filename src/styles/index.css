@@ -1,19 +1,19 @@
 @import 'tailwindcss';
 
 /* ────────────────────────────────────────────────────────────────────────────
-   ChinniThara design tokens — the single place to change brand colours & type.
+   ChinniThara design tokens. Change brand colours and type here, in one place.
    Text-safe on white (WCAG AA): ink, brown, cocoa-deep, sage-deep.
    cocoa, gold, sage and blush are for accents, large type and surfaces.
    ──────────────────────────────────────────────────────────────────────────── */
 @theme {
-  /* Surfaces — clean white app with neutral off-white sections */
+  /* Surfaces: a clean white app with soft off-white sections */
   --color-ivory: #ffffff;
   --color-ivory-deep: #f7f7f5;
   --color-linen: #f1f0ed;
   /* Exact background of the official logo artwork, so the logo sits on a matching card */
   --color-logo-cream: #fef9ef;
 
-  /* Brand accents — use sparingly */
+  /* Brand accents: use sparingly */
   --color-cocoa: #a86f43;
   --color-cocoa-deep: #8a5630;
   --color-gold: #ddb16f;
@@ -24,7 +24,7 @@
   --color-blush: #ebc8b9;
   --color-blush-soft: #faf1ed;
 
-  /* Text — near-neutral darks (headings / body) */
+  /* Text: soft near-black for headings and body */
   --color-brown: #34302c;
   --color-ink: #2b2927;
   --color-white: #ffffff;

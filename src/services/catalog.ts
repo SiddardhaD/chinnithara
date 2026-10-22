@@ -1,5 +1,5 @@
 /**
- * Catalogue service — the ONLY module that knows where product data comes from.
+ * Catalogue service. This is the only module that knows where product data comes from.
  *
  * Today it reads local TypeScript data. To move to Supabase later, replace the bodies
  * of these functions with Supabase queries (and make the hooks in `hooks/useCatalog.ts`

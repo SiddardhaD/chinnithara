@@ -1,7 +1,7 @@
 import { siteConfig } from '../../config/site';
 import { cn } from '../../utils/format';
 
-/** Official wordmark (చిన్ని Thara) — used unaltered, scaled proportionally. */
+/** The official చిన్ని Thara wordmark, used as supplied and only scaled. */
 export function Wordmark({ className, priority = false }: { className?: string; priority?: boolean }) {
   return (
     <img
@@ -10,7 +10,7 @@ export function Wordmark({ className, priority = false }: { className?: string; 
       sizes="(min-width: 1024px) 220px, 170px"
       width={480}
       height={114}
-      alt={`${siteConfig.brand.teluguName} — ${siteConfig.brand.name}`}
+      alt={siteConfig.brand.name}
       className={cn('h-auto select-none', className)}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
@@ -28,7 +28,7 @@ export function FullLogo({ className }: { className?: string }) {
       sizes="(min-width: 1024px) 320px, 240px"
       width={480}
       height={480}
-      alt={`${siteConfig.brand.name} logo — a baby sleeping on a golden crescent moon among clouds and cotton flowers. ${siteConfig.brand.tagline} ${siteConfig.brand.descriptor}.`}
+      alt={`${siteConfig.brand.name} logo: a baby sleeping on a golden crescent moon among clouds and cotton flowers. ${siteConfig.brand.tagline} ${siteConfig.brand.descriptor}.`}
       className={cn('h-auto rounded-[1.5rem] bg-logo-cream select-none', className)}
       loading="lazy"
       decoding="async"

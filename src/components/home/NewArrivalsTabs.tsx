@@ -6,7 +6,7 @@ import { cn } from '../../utils/format';
 import { SectionHeading } from '../common/SectionHeading';
 import { ProductRail } from '../product/ProductRail';
 
-/** Tab order for the homepage — collections that have products appear as pills. */
+/** Homepage tab order. Only collections with products get a pill. */
 const tabSlugs = ['muslin-co-ord-sets', 'frocks', 'jablas-and-rompers', 'muslin-essentials'];
 
 export function NewArrivalsTabs({ products }: { products: Product[] }) {
@@ -33,7 +33,7 @@ export function NewArrivalsTabs({ products }: { products: Product[] }) {
       <div
         role="tablist"
         aria-label="New arrivals by category"
-        className="scroll-row -mx-4 flex gap-2 overflow-x-auto [contain:paint] px-4 pb-1 sm:mx-0 sm:flex-wrap sm:justify-center sm:gap-3 sm:px-0"
+        className="scroll-row -mx-4 flex gap-2 overflow-x-auto [contain:paint] px-4 scroll-px-4 pb-1 sm:mx-0 sm:flex-wrap sm:justify-center sm:gap-3 sm:px-0"
         onKeyDown={(e) => {
           if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
           const i = tabs.indexOf(active);

@@ -66,7 +66,7 @@ export function Measurements({
       <h2 id="measurements-title" className="flex items-center gap-2 text-sm font-semibold text-brown">
         <Ruler className="size-4 text-cocoa" aria-hidden="true" />
         Measurements
-        {options.length > 1 && <span className="font-normal text-ink/60">— same prints, {options.length} sizes</span>}
+        {options.length > 1 && <span className="font-normal text-ink/60">· same prints, {options.length} sizes</span>}
       </h2>
       <ul className={cn('mt-3 grid gap-3', options.length > 1 ? 'grid-cols-2' : 'grid-cols-1 sm:max-w-[16rem]')}>
         {options.map(({ p, dims: [w, h] }) => {

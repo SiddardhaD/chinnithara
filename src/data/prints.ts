@@ -13,14 +13,14 @@ export const prints: Print[] = [
     name: 'White Base Prints',
     family: 'assorted',
     description:
-      'Assorted prints on a fresh white base. Designs vary by batch — message us on WhatsApp to see what’s in.',
+      'Assorted prints on a fresh white base. Designs change with each batch, so message us on WhatsApp to see what’s in.',
   },
   {
     slug: 'dyed-on-print',
     name: 'Colour Base Prints',
     family: 'assorted',
     description:
-      'Assorted prints on a soft coloured base. Designs vary by batch — message us on WhatsApp to see what’s in.',
+      'Assorted prints on a soft coloured base. Designs change with each batch, so message us on WhatsApp to see what’s in.',
   },
 ];
 

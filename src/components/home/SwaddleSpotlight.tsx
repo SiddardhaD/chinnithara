@@ -49,7 +49,7 @@ export function SwaddleSpotlight({ product }: { product: Product | undefined }) 
             Muslin <span className="text-cocoa">swaddles</span>
           </h2>
           <p className="mt-3 max-w-md text-ink/75">
-            Soft, crinkled 100 × 100 cm muslin that’s big enough to wrap your little one snugly — in four sweet designs.
+            Soft, crinkled 100 × 100 cm muslin, big enough to wrap your little one snugly. Four sweet designs to choose from.
           </p>
 
           <div className="mt-5">

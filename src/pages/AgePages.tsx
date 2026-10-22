@@ -17,7 +17,7 @@ const tones = ['bg-blush-soft', 'bg-sage-soft', 'bg-linen'];
 export function AgeIndexPage() {
   usePageMeta({
     title: 'Shop by Age',
-    description: 'Find ChinniThara babywear by age — 0–6 months, 6–12 months and 12–24 months.',
+    description: 'Find ChinniThara babywear by age, from newborn to 2 years.',
     path: '/age',
   });
   const { products } = useProducts();

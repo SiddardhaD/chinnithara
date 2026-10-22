@@ -9,7 +9,7 @@ import { ResponsiveImage } from '../common/ResponsiveImage';
  * Product gallery.
  *
  * Images are grouped into "slides": when a design has both a flat photo and a lifestyle
- * photo (`lifestyleIndex`), those two form one group — the thumbnails show one photo per
+ * photo (`lifestyleIndex`), those two form one group. The thumbnails show one photo per
  * design, and the main image becomes a swipeable slider between the group's photos.
  * Other images are groups of one.
  *

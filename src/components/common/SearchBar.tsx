@@ -87,7 +87,7 @@ export function SearchBar({ open, onClose }: { open: boolean; onClose: () => voi
                 ))}
               </ul>
             ) : (
-              <p className="px-2 py-3 text-sm text-ink/70">No matches yet — try “frock” or “co-ord”.</p>
+              <p className="px-2 py-3 text-sm text-ink/70">No matches yet. Try “frock” or “co-ord”.</p>
             )}
             <button
               type="button"

@@ -15,7 +15,7 @@ export const banners: Banner[] = [
     eyebrow: 'New · 3–6 months',
     title: 'Little knot',
     titleAccent: 'frocks',
-    text: 'Tie-up shoulder bows and soft gathered muslin — in five sweet designs.',
+    text: 'Tie-up shoulder bows and soft gathered muslin, in five sweet designs.',
     cta: { label: 'Shop knot frocks', to: '/products/muslin-knot-frock' },
     image: {
       src: '/images/banners/knot-frocks-1672.webp',
@@ -51,7 +51,7 @@ export const banners: Banner[] = [
     eyebrow: 'New · 12–24 months',
     title: 'Twirl-ready',
     titleAccent: 'zip frocks',
-    text: 'Soft pleats, a rounded yoke and an easy back zip — in five sweet designs.',
+    text: 'Soft pleats, a rounded yoke and an easy back zip, in five sweet designs.',
     cta: { label: 'Shop zip frocks', to: '/products/muslin-zip-frock' },
     image: {
       src: '/images/banners/zip-frocks-1672.webp',

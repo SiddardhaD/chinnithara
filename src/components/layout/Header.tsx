@@ -95,14 +95,13 @@ export function Header() {
 
           <Link to="/" className="flex items-center gap-2.5 rounded-md" aria-label="ChinniThara home">
             <img
-              src="/images/brand/chinnithara-moon-mark-240.webp"
+              src="/images/brand/chinnithara-emblem-240.webp"
+              srcSet="/images/brand/chinnithara-emblem-240.webp 240w, /images/brand/chinnithara-emblem-480.webp 480w"
+              sizes="80px"
               alt=""
               width={240}
-              height={240}
-              className={cn(
-                'hidden rounded-full bg-logo-cream ring-1 ring-gold/30 transition-all duration-300 lg:block',
-                scrolled ? 'size-10' : 'size-14',
-              )}
+              height={170}
+              className={cn('hidden h-auto transition-all duration-300 lg:block', scrolled ? 'w-14' : 'w-20')}
             />
             <Wordmark priority className="w-[132px] sm:w-[160px] lg:w-[190px] xl:w-[210px]" />
           </Link>

@@ -25,7 +25,7 @@ export function HomePage() {
   usePageMeta({
     title: siteConfig.brand.name,
     description:
-      'ChinniThara — Exquisite Baby Clothing. Thoughtfully chosen muslin co-ord sets, frocks and baby essentials for little ones up to 2 years.',
+      'ChinniThara, exquisite baby clothing. Thoughtfully chosen muslin co-ord sets, frocks and baby essentials for little ones up to 2 years.',
     path: '/',
   });
 
@@ -127,7 +127,7 @@ export function HomePage() {
                 sweet as the moments they’re made for.
               </p>
               <p>
-                We choose every style with care — comfortable cuts, easy closures and prints that make you smile —
+                We choose every style with care: comfortable cuts, easy closures and prints that make you smile,
                 so you can focus on the cuddles, giggles and first adventures.
               </p>
             </div>
@@ -138,7 +138,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* I. Brand highlights — only claims supported by business information */}
+      {/* Brand highlights. Only claims the business can back up. */}
       <section aria-labelledby="highlights-title" className="container-page py-5 sm:py-7">
         <h2 id="highlights-title" className="sr-only">
           Why ChinniThara
@@ -162,7 +162,7 @@ export function HomePage() {
         </ul>
       </section>
 
-      {/* J. Instagram — a link out, not a fake live feed */}
+      {/* Instagram posts, added by hand (see data/instagramPosts.ts) */}
       <section aria-labelledby="instagram-title" className="container-page pt-5 sm:pt-7">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
@@ -173,7 +173,7 @@ export function HomePage() {
             <p className="mt-4 max-w-md text-lg text-ink/80">
               {instagramUrl
                 ? 'New arrivals, styling ideas and little moments from the ChinniThara family.'
-                : 'Our Instagram is coming soon — new arrivals, styling ideas and little moments.'}
+                : 'Our Instagram is coming soon, with new arrivals, styling ideas and little moments.'}
             </p>
             {instagramUrl ? (
               <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-7">

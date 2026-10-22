@@ -1,5 +1,5 @@
 /**
- * Delicate line motifs drawn from the logo — moon, cloud, cotton flower, sprig.
+ * Line motifs taken from the logo: moon, cloud, cotton flower and sprig.
  * Decorative only (aria-hidden). Use sparingly so photography stays the focus.
  */
 type MotifProps = { className?: string };

@@ -1,11 +1,11 @@
 import type { Category, Collection } from '../types/product';
 
-/** "Shop by Style" — every product belongs to exactly one category. */
+/** Shop by Style. Every product belongs to exactly one category. */
 export const categories: Category[] = [
   {
     slug: 'co-ord-sets',
     name: 'Muslin Co-ord Sets',
-    description: 'Matching tops and bottoms in breezy muslin — an easy, put-together look.',
+    description: 'Matching tops and bottoms in breezy muslin for an easy, put-together look.',
   },
   {
     slug: 'frocks',
@@ -15,7 +15,7 @@ export const categories: Category[] = [
   {
     slug: 'jablas',
     name: 'Jablas',
-    description: 'Simple side-button jablas — a classic first outfit.',
+    description: 'Simple side-button jablas, a classic first outfit.',
   },
   {
     slug: 'rompers',

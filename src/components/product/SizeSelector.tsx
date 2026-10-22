@@ -23,7 +23,7 @@ export const SizeSelector = forwardRef<HTMLFieldSetElement, Props>(function Size
       <legend className="mb-3 text-sm font-semibold text-brown">
         Size
         {value && getSize(value).kind === 'age' && (
-          <span className="font-normal text-ink/75"> — {getSize(value).ageRange}</span>
+          <span className="font-normal text-ink/75">: {getSize(value).ageRange}</span>
         )}
       </legend>
       <div className="flex flex-wrap gap-2.5">

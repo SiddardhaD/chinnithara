@@ -30,8 +30,8 @@ export type Closure = 'zip' | 'button' | 'press-stud' | 'side-button' | 'shoulde
 export type Availability = 'in-stock' | 'limited' | 'sold-out';
 
 /**
- * `live`  — genuine photos and details are in place.
- * `draft` — a real product line (from the purchase plan) still awaiting photos / price.
+ * `live` means real photos and details are in place.
+ * `draft` means a real product line that is still waiting for photos or a price.
  */
 export type ListingStatus = 'live' | 'draft';
 
@@ -60,16 +60,16 @@ export interface ProductDesign {
 
 export interface Product {
   id: string;
-  /** Stable URL segment — do not change once published, links depend on it. */
+  /** The URL segment. Don't change it once published, because links depend on it. */
   slug: string;
   name: string;
   /** One line for cards and meta descriptions. */
   summary: string;
   /** Paragraphs for the product page. Describe only what is verified. */
   description: string[];
-  /** Retail price in INR. Leave undefined until confirmed — shown as "Price on request". */
+  /** Retail price in INR. Leave it out until confirmed and the site shows "Price on request". */
   price?: number;
-  /** Previous price — only set when a genuine sale is running. */
+  /** Previous price. Only set this when a genuine sale is running. */
   compareAtPrice?: number;
   /** Empty array = a designed placeholder is shown (documented in README). */
   images: ProductImage[];
@@ -94,7 +94,7 @@ export interface Product {
   isNewArrival?: boolean;
   availability?: Availability;
   listingStatus: ListingStatus;
-  /** ISO date the listing was added — used for "newest" sorting. */
+  /** Date the listing was added (YYYY-MM-DD), used for "newest" sorting. */
   addedOn: string;
 }
 
@@ -109,7 +109,7 @@ export interface Collection {
   name: string;
   eyebrow: string;
   description: string;
-  /** Pure predicate over a product — keeps collections declarative and data-driven. */
+  /** Returns true when a product belongs in this collection. */
   matches: (product: Product) => boolean;
 }
 
