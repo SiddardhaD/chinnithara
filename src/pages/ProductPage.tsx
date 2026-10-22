@@ -7,13 +7,14 @@ import { WhatsAppButton } from '../components/common/WhatsAppButton';
 import { ProductGallery } from '../components/product/ProductGallery';
 import { ProductRail } from '../components/product/ProductRail';
 import { ProductPrice } from '../components/product/ProductPrice';
+import { Measurements } from '../components/product/Measurements';
 import { SizeGuide } from '../components/product/SizeGuide';
 import { DesignSelector } from '../components/product/DesignSelector';
 import { SizeSelector } from '../components/product/SizeSelector';
 import { getCategory } from '../data/categories';
 import { getPrint } from '../data/prints';
 import { getSize, isAgeSize } from '../data/sizes';
-import { useProduct } from '../hooks/useCatalog';
+import { useProduct, useProducts } from '../hooks/useCatalog';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useStock } from '../hooks/useStock';
 import type { Availability, Closure, ProductDesign, SizeCode } from '../types/product';
@@ -67,6 +68,7 @@ export function ProductPage() {
   const designParam = searchParams.get('design');
   const [triedToOrder, setTriedToOrder] = useState(false);
   const stock = useStock();
+  const { products: allProducts } = useProducts();
   const { product, related } = useProduct(slug);
   const [size, setSize] = useState<SizeCode | null>(null);
   const [quantity, setQuantity] = useState(1);
@@ -74,7 +76,8 @@ export function ProductPage() {
   const sizeRef = useRef<HTMLFieldSetElement>(null);
   const [design, setDesign] = useState<ProductDesign | null>(null);
   const [designError, setDesignError] = useState('');
-  const [galleryIndex, setGalleryIndex] = useState(0);
+  // null = not chosen yet → show the default design's first photo (avoids a flash of the wrong photo).
+  const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
   const designRef = useRef<HTMLFieldSetElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const [showStickyCta, setShowStickyCta] = useState(false);
@@ -97,7 +100,7 @@ export function ProductPage() {
     setDesign(initialDesign);
     setDesignError('');
     setTriedToOrder(false);
-    setGalleryIndex(initialDesign?.imageIndex ?? 0);
+    setGalleryIndex(null);
     setQuantity(1);
     setSizeError('');
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -170,19 +173,22 @@ export function ProductPage() {
         />
 
         <div className="mt-6 grid gap-10 lg:mt-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-16">
+          <div>
           <ProductGallery
             product={product}
-            active={galleryIndex}
+            active={galleryIndex ?? (design ?? product.designs?.find((d) => d.id === designParam) ?? product.designs?.[0])?.imageIndex ?? 0}
             onActiveChange={(i) => {
               setGalleryIndex(i);
               // Tapping a design's photo also selects that design.
-              const match = product.designs?.find((d) => d.imageIndex === i || d.lifestyleIndex === i);
+              const match = product.designs?.find((d) => d.imageIndex === i || d.lifestyleIndex === i || d.extraIndexes?.includes(i));
               if (match) {
                 setDesign(match);
                 setDesignError('');
               }
             }}
           />
+            {product.photoNote && <p className="mt-3 text-center text-xs text-ink/60 md:pl-20 lg:pl-24">{product.photoNote}</p>}
+          </div>
 
           <div className="lg:sticky lg:top-36 lg:self-start">
             <p className="eyebrow">{product.style}</p>
@@ -304,7 +310,15 @@ export function ProductPage() {
                 </p>
               </div>
 
-              {product.availableSizes.some(isAgeSize) && <SizeGuide highlight={product.availableSizes} />}
+              {product.availableSizes.some(isAgeSize) ? (
+                <SizeGuide highlight={product.availableSizes} />
+              ) : (
+                <Measurements
+                  product={product}
+                  designId={design?.id}
+                  siblings={allProducts.filter((p) => product.sizeSiblings?.includes(p.slug))}
+                />
+              )}
             </div>
 
             <div className="mt-8 border-t border-brown/15">

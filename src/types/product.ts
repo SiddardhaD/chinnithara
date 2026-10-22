@@ -17,7 +17,7 @@ export type AgeGroupSlug = '0-3-months' | '3-6-months' | '6-12-months' | '12-24-
 
 export type CategorySlug = 'co-ord-sets' | 'frocks' | 'jablas' | 'rompers' | 'essentials';
 
-export type PrintSlug = 'birds-and-botanicals' | 'white-on-print' | 'dyed-on-print';
+export type PrintSlug = 'white-on-print' | 'dyed-on-print';
 
 export type PrintFamily = 'animal' | 'botanical' | 'rainbow' | 'assorted' | 'plain';
 
@@ -54,6 +54,8 @@ export interface ProductDesign {
   imageIndex: number;
   /** Optional second photo of this design in use (e.g. a baby wrapped in the swaddle). */
   lifestyleIndex?: number;
+  /** Further photos of this design, shown after the others in the same slider. */
+  extraIndexes?: number[];
 }
 
 export interface Product {
@@ -75,6 +77,10 @@ export interface Product {
   /** Human-readable style, e.g. "Sleeveless co-ord set". */
   style: string;
   closure?: Closure;
+  /** Short note shown under the gallery, e.g. when photos show a sibling product. */
+  photoNote?: string;
+  /** Slugs of the same product in other sizes (shown as a size switch with measurements). */
+  sizeSiblings?: string[];
   /** When set, customers choose a design before ordering. */
   designs?: ProductDesign[];
   print: PrintSlug;

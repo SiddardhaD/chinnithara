@@ -37,9 +37,12 @@ export function ProductGallery({
   const grouped = new Set<number>();
   const groups: number[][] = [];
   for (const d of product.designs ?? []) {
-    if (d.lifestyleIndex !== undefined && images[d.imageIndex] && images[d.lifestyleIndex]) {
-      groups.push([d.imageIndex, d.lifestyleIndex]);
-      grouped.add(d.imageIndex).add(d.lifestyleIndex);
+    const members = [d.imageIndex, d.lifestyleIndex, ...(d.extraIndexes ?? [])].filter(
+      (i): i is number => i !== undefined && !!images[i],
+    );
+    if (members.length > 1) {
+      groups.push(members);
+      members.forEach((i) => grouped.add(i));
     }
   }
   images.forEach((_, i) => {

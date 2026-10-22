@@ -12,8 +12,12 @@ export const printSwatches: PrintSwatch[] = [
   { name: 'Mangoes', q: 'mangoes', img: 'mangoes', blurb: 'Smiling mangoes and pineapples.' },
   { name: 'Toucans', q: 'toucans', img: 'toucans', blurb: 'Toucans, tropical leaves and hibiscus.' },
   { name: 'Leaves', q: 'leaves', img: 'leaves', blurb: 'Tiny white leaves on mustard and olive.' },
+  { name: 'Owls', q: 'owls', img: 'owls', blurb: 'Sleepy owls, bunnies and little birds.' },
   { name: 'Butterflies', q: 'butterflies', img: 'butterflies', blurb: 'Pink and blue butterflies.' },
   { name: 'Moons & Clouds', q: 'moons', img: 'moons', blurb: 'Sleepy clouds, moons and stars.' },
   { name: 'Crabs', q: 'crabs', img: 'crabs', blurb: 'Happy little crabs and waves.' },
-  { name: 'Birds', q: 'birds', img: 'birds', blurb: 'Songbirds, berries and leafy sprigs.' },
+  { name: 'Dinosaurs', q: 'dinosaurs', img: 'dinosaurs', blurb: 'Friendly dinos in orange, green and blue.' },
+  { name: 'Space Bunnies', q: 'space bunnies', img: 'space-bunnies', blurb: 'Rockets, bunnies, rainbows and suns.' },
+  { name: 'Happy Sunshine', q: 'happy sunshine', img: 'happy-sunshine', blurb: 'Suns, hearts, cherries and little “HAPPY”s.' },
+  { name: 'Little Space', q: 'little space', img: 'little-space', blurb: 'Planets, moons, rockets and stars.' },
 ];

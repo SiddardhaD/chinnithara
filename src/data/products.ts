@@ -4,7 +4,6 @@ import type { Product } from '../types/product';
  * ChinniThara product catalogue — the single source of product content.
  *
  * Sources:
- *  • `bird-garden-muslin-frock` — genuine, unbranded product photograph supplied by the owner.
  *  • `muslin-knot-frock` — owner-supplied photos of the five knot-frock designs (invoice: Frock Knot,
  *    dyed on print, assorted, size 3–6).
  *  • `muslin-co-ord-set-colour-print` — owner-supplied photos of five co-ord designs (invoice: Co-ord Set,
@@ -19,60 +18,138 @@ import type { Product } from '../types/product';
  *  • Lines marked TODO need confirming with the owner/supplier before launch.
  *  • Wholesale costs from the invoice / purchase plan are NOT retail prices and must never appear here.
  */
-const frockDir = '/images/products/bird-garden-muslin-frock';
 const knotDir = '/images/products/muslin-knot-frock';
 const coordDir = '/images/products/muslin-co-ord-set-colour-print';
 const zipDir = '/images/products/muslin-zip-frock';
 const nappyDir = '/images/products/muslin-cloth-nappy';
 const swaddleDir = '/images/products/muslin-swaddle';
+
+/** Swaddle photos (flat + wrapped per design). The bath towel shares the same prints. */
+const swaddleImages = [
+    {
+      src: `${swaddleDir}/sage-sprigs-worn-1080.webp`,
+      srcSet: `${swaddleDir}/sage-sprigs-worn-600.webp 600w, ${swaddleDir}/sage-sprigs-worn-1080.webp 1080w`,
+      alt: 'Newborn sleeping snugly in a mother’s arms, wrapped in the sage green muslin swaddle with small white sprig prints',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/sage-sprigs-flat-1080.webp`,
+      srcSet: `${swaddleDir}/sage-sprigs-flat-600.webp 600w, ${swaddleDir}/sage-sprigs-flat-1080.webp 1080w`,
+      alt: 'Sage green muslin swaddle with small white sprig prints, swirled on a jute mat',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/pink-peaches-worn-1080.webp`,
+      srcSet: `${swaddleDir}/pink-peaches-worn-600.webp 600w, ${swaddleDir}/pink-peaches-worn-1080.webp 1080w`,
+      alt: 'Newborn sleeping snugly in a mother’s arms, wrapped in the soft pink muslin swaddle with peach prints',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/pink-peaches-flat-1080.webp`,
+      srcSet: `${swaddleDir}/pink-peaches-flat-600.webp 600w, ${swaddleDir}/pink-peaches-flat-1080.webp 1080w`,
+      alt: 'Soft pink muslin swaddle with peach prints, swirled on a jute mat',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/aqua-toucans-worn-1080.webp`,
+      srcSet: `${swaddleDir}/aqua-toucans-worn-600.webp 600w, ${swaddleDir}/aqua-toucans-worn-1080.webp 1080w`,
+      alt: 'Newborn sleeping snugly in a mother’s arms, wrapped in the aqua muslin swaddle with toucans, tropical leaves and hibiscus',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/aqua-toucans-flat-1080.webp`,
+      srcSet: `${swaddleDir}/aqua-toucans-flat-600.webp 600w, ${swaddleDir}/aqua-toucans-flat-1080.webp 1080w`,
+      alt: 'Aqua muslin swaddle with toucans, tropical leaves and hibiscus, swirled on a jute mat',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/rust-blossoms-worn-1080.webp`,
+      srcSet: `${swaddleDir}/rust-blossoms-worn-600.webp 600w, ${swaddleDir}/rust-blossoms-worn-1080.webp 1080w`,
+      alt: 'Newborn sleeping snugly in a mother’s arms, wrapped in the rust orange muslin swaddle with small white flowers',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/rust-blossoms-flat-1080.webp`,
+      srcSet: `${swaddleDir}/rust-blossoms-flat-600.webp 600w, ${swaddleDir}/rust-blossoms-flat-1080.webp 1080w`,
+      alt: 'Rust orange muslin swaddle with small white flowers, swirled on a jute mat',
+      width: 1080,
+      height: 1080,
+    },
+];
+
+/** Bath towel photos: baby sitting wrapped in the towel prints + the flat swaddle photo. */
+const bathTowelImages = [
+    {
+      src: `${swaddleDir}/sage-sprigs-sitting-1080.webp`,
+      srcSet: `${swaddleDir}/sage-sprigs-sitting-600.webp 600w, ${swaddleDir}/sage-sprigs-sitting-1080.webp 1080w`,
+      alt: 'Smiling baby sitting wrapped in the sage green muslin swaddle with small white sprig prints',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/sage-sprigs-flat-1080.webp`,
+      srcSet: `${swaddleDir}/sage-sprigs-flat-600.webp 600w, ${swaddleDir}/sage-sprigs-flat-1080.webp 1080w`,
+      alt: 'Sage green muslin swaddle with small white sprig prints, swirled on a jute mat',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/pink-peaches-sitting-1080.webp`,
+      srcSet: `${swaddleDir}/pink-peaches-sitting-600.webp 600w, ${swaddleDir}/pink-peaches-sitting-1080.webp 1080w`,
+      alt: 'Smiling baby sitting wrapped in the soft pink muslin swaddle with peach prints',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/pink-peaches-flat-1080.webp`,
+      srcSet: `${swaddleDir}/pink-peaches-flat-600.webp 600w, ${swaddleDir}/pink-peaches-flat-1080.webp 1080w`,
+      alt: 'Soft pink muslin swaddle with peach prints, swirled on a jute mat',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/aqua-toucans-sitting-1080.webp`,
+      srcSet: `${swaddleDir}/aqua-toucans-sitting-600.webp 600w, ${swaddleDir}/aqua-toucans-sitting-1080.webp 1080w`,
+      alt: 'Smiling baby sitting wrapped in the aqua muslin swaddle with toucans, tropical leaves and hibiscus',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/aqua-toucans-flat-1080.webp`,
+      srcSet: `${swaddleDir}/aqua-toucans-flat-600.webp 600w, ${swaddleDir}/aqua-toucans-flat-1080.webp 1080w`,
+      alt: 'Aqua muslin swaddle with toucans, tropical leaves and hibiscus, swirled on a jute mat',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/rust-blossoms-sitting-1080.webp`,
+      srcSet: `${swaddleDir}/rust-blossoms-sitting-600.webp 600w, ${swaddleDir}/rust-blossoms-sitting-1080.webp 1080w`,
+      alt: 'Smiling baby sitting wrapped in the rust orange muslin swaddle with small white flowers',
+      width: 1080,
+      height: 1080,
+    },
+    {
+      src: `${swaddleDir}/rust-blossoms-flat-1080.webp`,
+      srcSet: `${swaddleDir}/rust-blossoms-flat-600.webp 600w, ${swaddleDir}/rust-blossoms-flat-1080.webp 1080w`,
+      alt: 'Rust orange muslin swaddle with small white flowers, swirled on a jute mat',
+      width: 1080,
+      height: 1080,
+    },
+];
 const jablaDir = '/images/products/side-button-muslin-jabla';
+const romperDir = '/images/products/muslin-romper';
+const boxyDir = '/images/products/boxy-muslin-co-ord-set';
+const hoodDir = '/images/products/muslin-hooded-towel';
+const washDir = '/images/products/muslin-wash-cloth';
 
 export const products: Product[] = [
-  {
-    id: 'ct-001',
-    slug: 'bird-garden-muslin-frock',
-    name: 'Bird Garden Muslin Frock',
-    summary: 'A sleeveless frock with a gathered skirt and a sweet birds-and-sprigs print.',
-    description: [
-      'A sleeveless frock with a softly gathered skirt, scattered with little orange and yellow songbirds, berries and leafy sprigs on a white ground.',
-      'Neat white binding finishes the neckline and armholes — a pretty, easy piece for everyday wear.',
-    ],
-    price: undefined, // TODO: set retail price in INR
-    images: [
-      {
-        src: `${frockDir}/front-1066.webp`,
-        srcSet: `${frockDir}/front-600.webp 600w, ${frockDir}/front-1066.webp 1066w`,
-        alt: 'Bird Garden Muslin Frock laid flat on a wooden surface, showing the sleeveless bodice and gathered skirt',
-        width: 1066,
-        height: 1066,
-      },
-      {
-        src: `${frockDir}/print-detail-600.webp`,
-        alt: 'Close-up of the frock bodice showing the orange and yellow bird print',
-        width: 600,
-        height: 600,
-      },
-      {
-        src: `${frockDir}/flatlay-wide-1600.webp`,
-        srcSet: `${frockDir}/flatlay-wide-960.webp 960w, ${frockDir}/flatlay-wide-1600.webp 1600w`,
-        alt: 'The frock styled beside white daisies and eucalyptus on a wooden table',
-        width: 1600,
-        height: 1066,
-      },
-    ],
-    category: 'frocks',
-    style: 'Sleeveless frock with gathered skirt',
-    print: 'birds-and-botanicals',
-    colour: 'White with multi-colour print',
-    // TODO: this design does not match a line on the supplier invoice — confirm it is stocked,
-    // and its sizes, before launch (or remove it once genuine photos of invoiced stock arrive).
-    availableSizes: ['12-24M'],
-    fabric: 'Muslin',
-    featured: true,
-    isNewArrival: true,
-    listingStatus: 'live',
-    addedOn: '2026-10-10',
-  },
   {
     id: 'ct-002',
     slug: 'muslin-co-ord-set-white-print',
@@ -163,20 +240,36 @@ export const products: Product[] = [
     id: 'ct-004',
     slug: 'boxy-muslin-co-ord-set',
     name: 'Boxy Muslin Co-ord Set',
-    summary: 'A relaxed, boxy-style muslin co-ord set in assorted prints on a white base.',
+    summary: 'A relaxed, boxy sleeveless muslin top with matching elastic-waist shorts.',
     description: [
-      'A relaxed, boxy-style top with matching bottoms in assorted prints on a white base.',
-      'Designs vary by batch — message us on WhatsApp and we will share the prints currently available.',
+      'A relaxed, boxy-fit sleeveless top with a round neck, paired with easy pull-on shorts with an elastic waist — all in soft crinkled muslin with neat white binding.',
+      'Shown in our Happy Sunshine print: suns, hearts, cherries, flowers and little “HAPPY” words on a white base. More designs coming soon.',
     ],
-    images: [], // TODO: add genuine photos
+    images: [
+      {
+        src: `${boxyDir}/happy-sunshine-worn-1080.webp`,
+        srcSet: `${boxyDir}/happy-sunshine-worn-600.webp 600w, ${boxyDir}/happy-sunshine-worn-1080.webp 1080w`,
+        alt: 'Smiling baby standing on grass with a little support, wearing the Happy Sunshine boxy muslin co-ord set',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${boxyDir}/happy-sunshine-flat-1080.webp`,
+        srcSet: `${boxyDir}/happy-sunshine-flat-600.webp 600w, ${boxyDir}/happy-sunshine-flat-1080.webp 1080w`,
+        alt: 'Happy Sunshine boxy muslin co-ord set laid flat: sleeveless top and elastic-waist shorts with suns, hearts and cherries',
+        width: 1080,
+        height: 1080,
+      },
+    ],
     category: 'co-ord-sets',
     style: 'Boxy co-ord set',
+    designs: [{ id: 'happy-sunshine', name: 'Happy Sunshine', colour: 'White', imageIndex: 0, lifestyleIndex: 1 }],
     print: 'white-on-print',
-    colour: 'White base with assorted prints',
+    colour: 'White base with colourful prints',
     availableSizes: ['9-12M'],
     fabric: 'Muslin',
     isNewArrival: true,
-    listingStatus: 'draft',
+    listingStatus: 'live',
     addedOn: '2026-10-18',
   },
   {
@@ -383,20 +476,55 @@ export const products: Product[] = [
     id: 'ct-008',
     slug: 'muslin-romper',
     name: 'Muslin Romper',
-    summary: 'An easy all-in-one muslin romper in assorted prints on a white base.',
+    summary: 'A sleeveless white muslin romper with snaps down the front and at the legs, in 2 designs.',
     description: [
-      'An all-in-one muslin romper for simple, comfortable dressing, in assorted prints on a white base.',
-      'Designs vary by batch — message us on WhatsApp and we will share the prints currently available.',
+      'An easy all-in-one sleeveless romper in soft crinkled muslin, with a V-neck, snaps all the way down the front and snaps between the legs for quick nappy changes. Neat white binding finishes the edges.',
+      'Available in two playful prints on a white base — choose your favourite below.',
     ],
-    images: [], // TODO: add genuine photos
+    images: [
+      {
+        src: `${romperDir}/dinosaurs-worn-1080.webp`,
+        srcSet: `${romperDir}/dinosaurs-worn-600.webp 600w, ${romperDir}/dinosaurs-worn-1080.webp 1080w`,
+        alt: 'Smiling baby lying on a cream blanket wearing the white muslin romper with orange, green and blue dinosaurs',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${romperDir}/dinosaurs-flat-1080.webp`,
+        srcSet: `${romperDir}/dinosaurs-flat-600.webp 600w, ${romperDir}/dinosaurs-flat-1080.webp 1080w`,
+        alt: 'White muslin romper with orange, green and blue dinosaurs, laid flat showing the front snaps',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${romperDir}/space-bunnies-worn-1080.webp`,
+        srcSet: `${romperDir}/space-bunnies-worn-600.webp 600w, ${romperDir}/space-bunnies-worn-1080.webp 1080w`,
+        alt: 'Smiling baby lying on a cream blanket wearing the white muslin romper with rockets, bunnies, rainbows and suns',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${romperDir}/space-bunnies-flat-1080.webp`,
+        srcSet: `${romperDir}/space-bunnies-flat-600.webp 600w, ${romperDir}/space-bunnies-flat-1080.webp 1080w`,
+        alt: 'White muslin romper with rockets, bunnies, rainbows and suns, laid flat showing the front snaps',
+        width: 1080,
+        height: 1080,
+      },
+    ],
     category: 'rompers',
     style: 'Romper',
+    closure: 'press-stud',
+    designs: [
+      { id: 'dinosaurs', name: 'Dinosaurs', colour: 'White', imageIndex: 0, lifestyleIndex: 1 },
+      { id: 'space-bunnies', name: 'Space Bunnies', colour: 'White', imageIndex: 2, lifestyleIndex: 3 },
+    ],
     print: 'white-on-print',
-    colour: 'White base with assorted prints',
+    colour: 'White base with colourful prints',
     availableSizes: ['3-6M'],
     fabric: 'Muslin',
+    featured: true,
     isNewArrival: true,
-    listingStatus: 'draft',
+    listingStatus: 'live',
     addedOn: '2026-10-18',
   },
   {
@@ -408,66 +536,10 @@ export const products: Product[] = [
       'A generous 100 × 100 cm muslin swaddle with a soft, crinkled texture — big enough to wrap your little one snugly.',
       'Available in four designs on soft coloured bases — choose your favourite below.',
     ],
-    images: [
-      {
-        src: `${swaddleDir}/sage-sprigs-flat-1080.webp`,
-        srcSet: `${swaddleDir}/sage-sprigs-flat-600.webp 600w, ${swaddleDir}/sage-sprigs-flat-1080.webp 1080w`,
-        alt: 'Sage green muslin swaddle with small white sprig prints, swirled on a jute mat',
-        width: 1080,
-        height: 1080,
-      },
-      {
-        src: `${swaddleDir}/sage-sprigs-worn-1080.webp`,
-        srcSet: `${swaddleDir}/sage-sprigs-worn-600.webp 600w, ${swaddleDir}/sage-sprigs-worn-1080.webp 1080w`,
-        alt: 'Smiling baby wrapped in the sage green muslin swaddle with small white sprig prints',
-        width: 1080,
-        height: 1080,
-      },
-      {
-        src: `${swaddleDir}/pink-peaches-flat-1080.webp`,
-        srcSet: `${swaddleDir}/pink-peaches-flat-600.webp 600w, ${swaddleDir}/pink-peaches-flat-1080.webp 1080w`,
-        alt: 'Soft pink muslin swaddle with peach prints, swirled on a jute mat',
-        width: 1080,
-        height: 1080,
-      },
-      {
-        src: `${swaddleDir}/pink-peaches-worn-1080.webp`,
-        srcSet: `${swaddleDir}/pink-peaches-worn-600.webp 600w, ${swaddleDir}/pink-peaches-worn-1080.webp 1080w`,
-        alt: 'Smiling baby wrapped in the soft pink muslin swaddle with peach prints',
-        width: 1080,
-        height: 1080,
-      },
-      {
-        src: `${swaddleDir}/aqua-toucans-flat-1080.webp`,
-        srcSet: `${swaddleDir}/aqua-toucans-flat-600.webp 600w, ${swaddleDir}/aqua-toucans-flat-1080.webp 1080w`,
-        alt: 'Aqua muslin swaddle with toucans, tropical leaves and hibiscus, swirled on a jute mat',
-        width: 1080,
-        height: 1080,
-      },
-      {
-        src: `${swaddleDir}/aqua-toucans-worn-1080.webp`,
-        srcSet: `${swaddleDir}/aqua-toucans-worn-600.webp 600w, ${swaddleDir}/aqua-toucans-worn-1080.webp 1080w`,
-        alt: 'Smiling baby wrapped in the aqua muslin swaddle with toucans, tropical leaves and hibiscus',
-        width: 1080,
-        height: 1080,
-      },
-      {
-        src: `${swaddleDir}/rust-blossoms-flat-1080.webp`,
-        srcSet: `${swaddleDir}/rust-blossoms-flat-600.webp 600w, ${swaddleDir}/rust-blossoms-flat-1080.webp 1080w`,
-        alt: 'Rust orange muslin swaddle with small white flowers, swirled on a jute mat',
-        width: 1080,
-        height: 1080,
-      },
-      {
-        src: `${swaddleDir}/rust-blossoms-worn-1080.webp`,
-        srcSet: `${swaddleDir}/rust-blossoms-worn-600.webp 600w, ${swaddleDir}/rust-blossoms-worn-1080.webp 1080w`,
-        alt: 'Smiling baby wrapped in the rust orange muslin swaddle with small white flowers',
-        width: 1080,
-        height: 1080,
-      },
-    ],
+    images: swaddleImages,
     category: 'essentials',
     style: 'Swaddle',
+    sizeSiblings: ['muslin-bath-towel'],
     designs: [
       { id: 'sage-sprigs', name: 'Sage Sprigs', colour: 'Sage green', imageIndex: 0, lifestyleIndex: 1 },
       { id: 'pink-peaches', name: 'Pink Peaches', colour: 'Pink', imageIndex: 2, lifestyleIndex: 3 },
@@ -487,60 +559,134 @@ export const products: Product[] = [
     id: 'ct-010',
     slug: 'muslin-bath-towel',
     name: 'Muslin Bath Towel',
-    summary: 'A 75 × 150 cm muslin bath towel in assorted prints on a coloured base.',
+    summary: 'A large 75 × 150 cm muslin bath towel in the same four prints as our swaddles.',
     description: [
-      'A 75 × 150 cm muslin bath towel in assorted prints on a soft coloured base.',
-      'Designs vary by batch — message us on WhatsApp and we will share the prints currently available.',
+      'A large 75 × 150 cm bath towel in soft, crinkled muslin — roomy enough to wrap your little one after bath time, and it grows with them.',
+      'Made in the same four prints as our swaddles — choose your favourite below.',
     ],
-    images: [], // TODO: add genuine photos
+    images: bathTowelImages,
+    photoNote: 'Photos show our 100 × 100 cm swaddle in the same prints — the bath towel is larger, at 75 × 150 cm.',
     category: 'essentials',
     style: 'Bath towel',
+    sizeSiblings: ['muslin-swaddle'],
+    designs: [
+      { id: 'sage-sprigs', name: 'Sage Sprigs', colour: 'Sage green', imageIndex: 0, lifestyleIndex: 1 },
+      { id: 'pink-peaches', name: 'Pink Peaches', colour: 'Pink', imageIndex: 2, lifestyleIndex: 3 },
+      { id: 'aqua-toucans', name: 'Aqua Toucans', colour: 'Aqua', imageIndex: 4, lifestyleIndex: 5 },
+      { id: 'rust-blossoms', name: 'Rust Blossoms', colour: 'Rust orange', imageIndex: 6, lifestyleIndex: 7 },
+    ],
     print: 'dyed-on-print',
-    colour: 'Coloured base with assorted prints',
+    colour: 'Sage green, pink, aqua and rust orange',
     availableSizes: ['75x150CM'],
     fabric: 'Muslin',
     isNewArrival: true,
-    listingStatus: 'draft',
+    listingStatus: 'live',
     addedOn: '2026-10-18',
   },
   {
     id: 'ct-011',
     slug: 'muslin-hooded-towel',
     name: 'Muslin Hooded Towel',
-    summary: 'A 75 × 75 cm hooded muslin towel in assorted prints on a coloured base.',
+    summary: 'A 75 × 75 cm white muslin hooded towel with a cosy corner hood, in a sweet space print.',
     description: [
-      'A 75 × 75 cm muslin towel with a hood, in assorted prints on a soft coloured base.',
-      'Designs vary by batch — message us on WhatsApp and we will share the prints currently available.',
+      'A soft 75 × 75 cm muslin towel with a corner hood that keeps little heads warm after bath time. Neat white binding finishes the edges.',
+      'Shown in our Little Space print: suns, moons, planets, rockets, stars and constellations on a white base.',
     ],
-    images: [], // TODO: add genuine photos
+    images: [
+      {
+        src: `${hoodDir}/space-worn-1080.webp`,
+        srcSet: `${hoodDir}/space-worn-600.webp 600w, ${hoodDir}/space-worn-1080.webp 1080w`,
+        alt: 'Smiling baby lying on a cream blanket wrapped in the white Little Space muslin hooded towel',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${hoodDir}/space-flat-1080.webp`,
+        srcSet: `${hoodDir}/space-flat-600.webp 600w, ${hoodDir}/space-flat-1080.webp 1080w`,
+        alt: 'White Little Space muslin hooded towel laid flat, showing the corner hood and planet, moon and rocket prints',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${hoodDir}/space-real-1080.webp`,
+        srcSet: `${hoodDir}/space-real-600.webp 600w, ${hoodDir}/space-real-1080.webp 1080w`,
+        alt: 'Baby wrapped in the Little Space muslin hooded towel with the hood up, lying on a grey cushion',
+        width: 1080,
+        height: 1080,
+      },
+    ],
     category: 'essentials',
     style: 'Hooded towel',
-    print: 'dyed-on-print',
-    colour: 'Coloured base with assorted prints',
+    designs: [{ id: 'little-space', name: 'Little Space', colour: 'White', imageIndex: 0, lifestyleIndex: 1, extraIndexes: [2] }],
+    print: 'white-on-print',
+    colour: 'White base with colourful prints',
     availableSizes: ['75x75CM'],
     fabric: 'Muslin',
     isNewArrival: true,
-    listingStatus: 'draft',
+    listingStatus: 'live',
     addedOn: '2026-10-18',
   },
   {
     id: 'ct-012',
     slug: 'muslin-wash-cloth',
     name: 'Muslin Wash Cloth',
-    summary: 'A 27 × 27 cm muslin wash cloth in assorted prints on a coloured base.',
+    summary: 'A soft 27 × 27 cm muslin wash cloth with a handy hanging loop, in 5 designs.',
     description: [
-      'A handy 27 × 27 cm muslin wash cloth in assorted prints on a soft coloured base.',
-      'Designs vary by batch — message us on WhatsApp and we will share the prints currently available.',
+      'A soft 27 × 27 cm muslin wash cloth with a little hanging loop at one corner — handy for bath time, wiping little faces and everyday clean-ups.',
+      'Available in five designs on soft coloured bases — choose your favourite below.',
     ],
-    images: [], // TODO: add genuine photos
+    images: [
+      {
+        src: `${washDir}/mustard-leaves-1080.webp`,
+        srcSet: `${washDir}/mustard-leaves-600.webp 600w, ${washDir}/mustard-leaves-1080.webp 1080w`,
+        alt: 'Mustard muslin wash cloth with tiny white leaf prints, held up by its corner',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${washDir}/aqua-toucans-1080.webp`,
+        srcSet: `${washDir}/aqua-toucans-600.webp 600w, ${washDir}/aqua-toucans-1080.webp 1080w`,
+        alt: 'Aqua muslin wash cloth with toucans, tropical leaves and hibiscus',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${washDir}/pink-owls-1080.webp`,
+        srcSet: `${washDir}/pink-owls-600.webp 600w, ${washDir}/pink-owls-1080.webp 1080w`,
+        alt: 'Pink muslin wash cloth with owls, bunnies and little birds',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${washDir}/apricot-blossoms-1080.webp`,
+        srcSet: `${washDir}/apricot-blossoms-600.webp 600w, ${washDir}/apricot-blossoms-1080.webp 1080w`,
+        alt: 'Apricot muslin wash cloth with small white flowers',
+        width: 1080,
+        height: 1080,
+      },
+      {
+        src: `${washDir}/olive-leaves-1080.webp`,
+        srcSet: `${washDir}/olive-leaves-600.webp 600w, ${washDir}/olive-leaves-1080.webp 1080w`,
+        alt: 'Olive green muslin wash cloth with tiny white leaf prints',
+        width: 1080,
+        height: 1080,
+      },
+    ],
     category: 'essentials',
     style: 'Wash cloth',
+    designs: [
+      { id: 'mustard-leaves', name: 'Mustard Leaves', colour: 'Mustard', imageIndex: 0 },
+      { id: 'aqua-toucans', name: 'Aqua Toucans', colour: 'Aqua', imageIndex: 1 },
+      { id: 'pink-owls', name: 'Pink Owls', colour: 'Pink', imageIndex: 2 },
+      { id: 'apricot-blossoms', name: 'Apricot Blossoms', colour: 'Apricot', imageIndex: 3 },
+      { id: 'olive-leaves', name: 'Olive Leaves', colour: 'Olive green', imageIndex: 4 },
+    ],
     print: 'dyed-on-print',
-    colour: 'Coloured base with assorted prints',
+    colour: 'Mustard, aqua, pink, apricot and olive green',
     availableSizes: ['27x27CM'],
     fabric: 'Muslin',
     isNewArrival: true,
-    listingStatus: 'draft',
+    listingStatus: 'live',
     addedOn: '2026-10-18',
   },
   {

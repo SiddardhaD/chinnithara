@@ -111,7 +111,6 @@ Products without photos show a designed line-drawing placeholder labelled "Photo
 | `public/images/brand/chinnithara-wordmark*.{png,webp}` | Cut from the official logo (the separate wordmark file was clipped at the top) | Cream background made transparent; letterforms and colours unchanged |
 | `public/favicon*`, `icon-*.png`, `apple-touch-icon.png`, `chinnithara-moon-mark-240.webp` | Square crop of the moon-and-baby emblem from the official logo | |
 | `public/og-image.jpg` | Official logo centred on brand ivory (1200×630) | Social share image |
-| `public/images/products/bird-garden-muslin-frock/*` | Owner-supplied, unbranded product photo | Square crop, print close-up and full flat-lay |
 | Product list (`src/data/products.ts`) | Supplier invoice: 12 muslin lines, assorted designs, "white on print" or "dyed on print" | Invoice unit costs are wholesale and are never shown |
 
 **Not used:** the supplier's promotional flyers and catalogue PDF. They carry another company's branding and phone numbers, and the catalogue states its images may be AI-generated, so they don't show your actual stock.
@@ -125,7 +124,6 @@ Products without photos show a designed line-drawing placeholder labelled "Photo
 - [ ] **Instagram handle** and optional **email**
 - [ ] **Retail prices** for every product. The purchase plan only lists wholesale costs, which must never be shown.
 - [ ] **Genuine photos** for the 9 draft listings: 4 clothing items (white-print co-ord set, boxy co-ord set, jabla, romper) and 5 muslin essentials (swaddle, bath towel, hooded towel, wash cloth, cloth nappy). ✅ Done: knot frock, colour-print co-ord set and zip frock (5 designs each).
-- [ ] **Bird Garden Muslin Frock**: this photographed design doesn't match a line on the supplier invoice. Confirm it's stocked, or remove it.
 - [ ] **Nappy size**: the invoice gives none, so 3–6 months comes from the purchase plan (marked `TODO`).
 - [ ] **Garment measurements** for the size guide (optional)
 - [ ] **Policy details** shown as highlighted *"(to be confirmed)"* text: delivery regions, dispatch time, exchange window, return-shipping costs, refund policy, payment methods and jurisdiction city. Search the code for `<Tbc`, fill in each one, then set `policiesAreDraft: false`.

@@ -37,7 +37,7 @@ export function SwaddleSpotlight({ product }: { product: Product | undefined }) 
                 className="aspect-square w-full animate-fade-in object-cover"
               />
               <figcaption className="absolute top-2.5 left-2.5 rounded-full bg-white/90 px-2.5 py-1 text-[0.68rem] font-bold text-ink backdrop-blur sm:top-3 sm:left-3 sm:text-xs">
-                {i === 0 ? 'Unwrapped' : 'All snug'}
+                {i === 0 ? 'All snug' : 'Unwrapped'}
               </figcaption>
             </figure>
           ))}
@@ -49,7 +49,7 @@ export function SwaddleSpotlight({ product }: { product: Product | undefined }) 
             Muslin <span className="text-cocoa">swaddles</span>
           </h2>
           <p className="mt-3 max-w-md text-ink/75">
-            Soft, crinkled muslin that’s big enough to wrap your little one snugly — in four sweet designs.
+            Soft, crinkled 100 × 100 cm muslin that’s big enough to wrap your little one snugly — in four sweet designs.
           </p>
 
           <div className="mt-5">
@@ -76,10 +76,18 @@ export function SwaddleSpotlight({ product }: { product: Product | undefined }) 
             </div>
           </div>
 
-          <Link to={`/products/${product.slug}?design=${active.id}`} className="btn btn-primary mt-6">
-            Shop {active.name}
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+            <Link to={`/products/${product.slug}?design=${active.id}`} className="btn btn-primary">
+              Shop {active.name}
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+            <Link
+              to={`/products/muslin-bath-towel?design=${active.id}`}
+              className="link-underline text-sm font-semibold text-ink"
+            >
+              Also as a 75 × 150 cm bath towel
+            </Link>
+          </div>
         </div>
       </div>
     </section>

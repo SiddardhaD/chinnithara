@@ -9,18 +9,6 @@ import type { Print } from '../types/product';
  */
 export const prints: Print[] = [
   {
-    slug: 'birds-and-botanicals',
-    name: 'Birds & Botanicals',
-    family: 'animal',
-    description: 'Little songbirds, berries and leafy sprigs scattered over a white ground.',
-    swatch: {
-      src: '/images/products/bird-garden-muslin-frock/print-detail-600.webp',
-      alt: 'Close-up of the birds and botanicals print: orange and yellow birds with leafy sprigs on white',
-      width: 600,
-      height: 600,
-    },
-  },
-  {
     slug: 'white-on-print',
     name: 'White Base Prints',
     family: 'assorted',

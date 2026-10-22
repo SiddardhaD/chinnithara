@@ -16,10 +16,10 @@ import { Testimonials } from '../components/home/Testimonials';
 import { ProductPrice } from '../components/product/ProductPrice';
 import { instagramUrl, siteConfig } from '../config/site';
 import { banners } from '../data/banners';
+import { instagramPosts } from '../data/instagramPosts';
 import { useProducts } from '../hooks/useCatalog';
 import { usePageMeta } from '../hooks/usePageMeta';
 
-const frock = '/images/products/bird-garden-muslin-frock';
 
 export function HomePage() {
   usePageMeta({
@@ -186,28 +186,32 @@ export function HomePage() {
               </p>
             )}
           </div>
-          <div className="grid grid-cols-3 gap-3 sm:gap-4">
-            {[
-              { src: `${frock}/front-600.webp`, alt: 'Bird Garden Muslin Frock laid flat' },
-              { src: '/images/brand/chinnithara-moon-mark-240.webp', alt: 'ChinniThara moon emblem', contain: true },
-              { src: `${frock}/print-detail-600.webp`, alt: 'Birds and botanicals print detail' },
-            ].map((img, i) => (
-              <div
-                key={img.src}
-                className={`aspect-[4/5] overflow-hidden rounded-[var(--radius-soft)] ${img.contain ? 'bg-logo-cream' : 'bg-ivory-deep'} ${i === 1 ? 'translate-y-6' : ''}`}
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  decoding="async"
-                  width={600}
-                  height={600}
-                  className={`h-full w-full ${img.contain ? 'object-contain p-3' : 'object-cover'}`}
-                />
-              </div>
+          <ul className="grid grid-cols-3 gap-2 sm:gap-3">
+            {instagramPosts.slice(0, 3).map((post) => (
+              <li key={post.img}>
+                <a
+                  href={post.url || instagramUrl || undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative block aspect-[4/5] overflow-hidden rounded-xl bg-ivory-deep sm:rounded-2xl"
+                >
+                  <img
+                    src={post.img}
+                    alt={post.alt}
+                    width={post.width}
+                    height={post.height}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <span className="absolute inset-0 grid place-items-center bg-ink/0 text-white opacity-0 transition duration-300 group-hover:bg-ink/35 group-hover:opacity-100">
+                    <Instagram className="size-7" />
+                  </span>
+                  <span className="sr-only"> (opens Instagram in a new tab)</span>
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
     </>
