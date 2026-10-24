@@ -20,4 +20,9 @@ export const printSwatches: PrintSwatch[] = [
   { name: 'Space Bunnies', q: 'space bunnies', img: 'space-bunnies', blurb: 'Rockets, bunnies, rainbows and suns.' },
   { name: 'Happy Sunshine', q: 'happy sunshine', img: 'happy-sunshine', blurb: 'Suns, hearts, cherries and little “HAPPY”s.' },
   { name: 'Little Space', q: 'little space', img: 'little-space', blurb: 'Planets, moons, rockets and stars.' },
+  { name: 'Coconut Grove', q: 'coconut grove', img: 'coconut-grove', blurb: 'Palm trees, cows, lions and turtles.' },
+  { name: 'Honey Bees', q: 'honey bees', img: 'honey-bees', blurb: 'Bees, beehives and honeycomb.' },
+  { name: 'Sea Friends', q: 'sea friends', img: 'sea-friends', blurb: 'Crabs, starfish and turtles.' },
+  { name: 'Garden Bugs', q: 'garden bugs', img: 'garden-bugs', blurb: 'Butterflies, dragonflies and tulips.' },
+  { name: 'Rainbow Elephants', q: 'rainbow elephants', img: 'rainbow-elephants', blurb: 'Elephants, rainbows and moons.' },
 ];
