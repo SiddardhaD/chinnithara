@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { loadStock, quantityFor, type StockTable } from '../services/stock';
+import { loadStock, priceFor, quantityFor, type StockTable } from '../services/stock';
 
 /** Number at or below which a "Only N left" badge is shown. */
 export const LOW_STOCK = 3;
@@ -27,5 +27,6 @@ export function useStock() {
     ready: table !== null,
     level: (slug: string, design?: string, size?: string) =>
       table ? describeStock(quantityFor(table, slug, design, size)) : null,
+    price: (slug: string, design?: string, size?: string) => (table ? priceFor(table, slug, design, size) : undefined),
   };
 }

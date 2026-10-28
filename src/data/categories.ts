@@ -23,6 +23,11 @@ export const categories: Category[] = [
     description: 'All-in-one rompers for easy dressing.',
   },
   {
+    slug: 'kits',
+    name: 'Baby Essentials Kits',
+    description: 'Curated sets of our muslin favourites, ready to gift or to use every day.',
+  },
+  {
     slug: 'essentials',
     name: 'Muslin Essentials',
     description: 'Swaddles, towels, wash cloths and nappies for everyday baby care.',
@@ -68,6 +73,13 @@ export const collections: Collection[] = [
     eyebrow: 'Baby care',
     description: 'Swaddles, bath and hooded towels, wash cloths and nappies.',
     matches: (p) => p.category === 'essentials',
+  },
+  {
+    slug: 'baby-essentials-kits',
+    name: 'Baby Essentials Kits',
+    eyebrow: 'Curated sets',
+    description: 'Hand-picked muslin sets, ready to gift or to use every day.',
+    matches: (p) => p.category === 'kits',
   },
 ];
 

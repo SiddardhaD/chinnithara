@@ -11,11 +11,13 @@ export type SizeCode =
   | '75x150CM'
   | '100x100CM'
   | '75x75CM'
-  | '27x27CM';
+  | '27x27CM'
+  // A complete kit sold as one set
+  | 'SET';
 
 export type AgeGroupSlug = '0-3-months' | '3-6-months' | '6-12-months' | '12-24-months';
 
-export type CategorySlug = 'co-ord-sets' | 'frocks' | 'jablas' | 'rompers' | 'essentials';
+export type CategorySlug = 'co-ord-sets' | 'frocks' | 'jablas' | 'rompers' | 'essentials' | 'kits';
 
 export type PrintSlug = 'white-on-print' | 'dyed-on-print';
 
@@ -58,6 +60,14 @@ export interface ProductDesign {
   extraIndexes?: number[];
 }
 
+/** One piece inside a kit. Links to the product it comes from. */
+export interface KitItem {
+  productSlug: string;
+  /** Design shown in the kit photo. Prints can be swapped on request. */
+  designId?: string;
+  qty: number;
+}
+
 export interface Product {
   id: string;
   /** The URL segment. Don't change it once published, because links depend on it. */
@@ -81,6 +91,10 @@ export interface Product {
   photoNote?: string;
   /** Slugs of the same product in other sizes (shown as a size switch with measurements). */
   sizeSiblings?: string[];
+  /** Hide this product everywhere on the site (kept in the data for later). */
+  hidden?: boolean;
+  /** For kits: the pieces inside, shown as "What's inside" on the product page. */
+  kitItems?: KitItem[];
   /** When set, customers choose a design before ordering. */
   designs?: ProductDesign[];
   print: PrintSlug;

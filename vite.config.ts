@@ -32,10 +32,10 @@ function seoFiles(siteUrl: string): Plugin {
       if (origin) {
         const routes = [
           ...staticRoutes,
-          ...collections.map((c) => `/collections/${c.slug}`),
+          ...collections.filter((c) => products.some((p) => !p.hidden && c.matches(p))).map((c) => `/collections/${c.slug}`),
           ...prints.map((p) => `/prints/${p.slug}`),
           ...ageGroups.map((a) => `/age/${a.slug}`),
-          ...products.map((p) => `/products/${p.slug}`),
+          ...products.filter((p) => !p.hidden).map((p) => `/products/${p.slug}`),
         ];
         const body = routes.map((r) => `  <url><loc>${origin}${r}</loc></url>`).join('\n');
         this.emitFile({

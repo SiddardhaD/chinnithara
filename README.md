@@ -86,7 +86,7 @@ For assorted products (like the Muslin Knot Frock), add one photo per design to 
 ### Live stock from Google Sheets
 
 1. In Google Sheets, create a tab named **Stock** and import [`docs/stock-template.csv`](docs/stock-template.csv) (File → Import). It lists every product, design and size.
-2. Fill in the **quantity** column. Leave a row blank to stop tracking it, which shows "Confirmed on WhatsApp".
+2. Fill in the **quantity** and **price** columns (price in rupees, e.g. `499`). Use **mrp** only when a genuine sale is running and it's higher than the price; the site then shows it struck through with the % off. Different prices per design or size are fine: cards show "From ₹…" and the product page shows the exact price once a design and size are chosen. Leave a row blank to stop tracking it, which shows "Confirmed on WhatsApp".
 3. File → Share → **Publish to web** → choose **only the Stock tab** → **Comma-separated values (.csv)** → Publish, and copy the link.
 4. Set `VITE_STOCK_SHEET_URL` to that link (in `.env` and in Cloudflare build variables) and redeploy once.
 

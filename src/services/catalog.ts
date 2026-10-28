@@ -10,9 +10,8 @@ import { products as localProducts } from '../data/products';
 import type { Product } from '../types/product';
 
 function visible(products: Product[]): Product[] {
-  return siteConfig.catalogue.showDraftListings
-    ? products
-    : products.filter((p) => p.listingStatus === 'live');
+  const shown = products.filter((p) => !p.hidden);
+  return siteConfig.catalogue.showDraftListings ? shown : shown.filter((p) => p.listingStatus === 'live');
 }
 
 /** Live listings first, then newest. */

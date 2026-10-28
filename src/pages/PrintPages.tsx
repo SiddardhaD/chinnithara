@@ -18,7 +18,7 @@ function previewFor(product: Product, q: string) {
 
 export function PrintsIndexPage() {
   usePageMeta({
-    title: 'Shop by Print',
+    title: 'Baby Clothes by Print',
     description: 'Discover ChinniThara babywear by print: penguins, bunnies, peaches, mangoes, toucans, butterflies and more.',
     path: '/prints',
   });

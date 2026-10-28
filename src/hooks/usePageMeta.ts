@@ -9,6 +9,10 @@ type PageMeta = {
   image?: string;
   type?: 'website' | 'product';
   noindex?: boolean;
+  /** Use the title exactly as given, without adding " | ChinniThara". */
+  rawTitle?: boolean;
+  /** Structured data (schema.org) for this page, e.g. a Product. */
+  jsonLd?: object | null;
 };
 
 function setMeta(attr: 'name' | 'property', key: string, content: string) {
@@ -32,9 +36,10 @@ function setCanonical(href: string) {
 }
 
 /** Sets title, description, canonical and Open Graph tags for the current page. */
-export function usePageMeta({ title, description, path, image, type = 'website', noindex }: PageMeta) {
+export function usePageMeta({ title, description, path, image, type = 'website', noindex, rawTitle, jsonLd }: PageMeta) {
+  const ld = jsonLd ? JSON.stringify(jsonLd) : '';
   useEffect(() => {
-    const fullTitle = title === siteConfig.brand.name ? title : `${title} | ${siteConfig.brand.name}`;
+    const fullTitle = rawTitle || title === siteConfig.brand.name ? title : `${title} | ${siteConfig.brand.name}`;
     const url = absoluteUrl(path ?? window.location.pathname);
     const img = absoluteUrl(image ?? '/og-image.jpg');
 
@@ -47,5 +52,14 @@ export function usePageMeta({ title, description, path, image, type = 'website',
     setMeta('property', 'og:url', url);
     setMeta('property', 'og:image', img);
     setMeta('property', 'og:type', type);
-  }, [title, description, path, image, type, noindex]);
+
+    document.getElementById('page-jsonld')?.remove();
+    if (ld) {
+      const el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.id = 'page-jsonld';
+      el.textContent = ld;
+      document.head.appendChild(el);
+    }
+  }, [title, description, path, image, type, noindex, rawTitle, ld]);
 }

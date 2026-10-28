@@ -17,6 +17,7 @@ export const sizes: SizeInfo[] = [
   { code: '75x150CM', kind: 'dimension', label: '75 × 150 cm', ageRange: '75 × 150 cm', minMonths: 0, maxMonths: 0 },
   { code: '100x100CM', kind: 'dimension', label: '100 × 100 cm', ageRange: '100 × 100 cm', minMonths: 0, maxMonths: 0 },
   { code: '75x75CM', kind: 'dimension', label: '75 × 75 cm', ageRange: '75 × 75 cm', minMonths: 0, maxMonths: 0 },
+  { code: 'SET', kind: 'dimension', label: 'Full set', ageRange: 'Full set', minMonths: 0, maxMonths: 0 },
   { code: '27x27CM', kind: 'dimension', label: '27 × 27 cm', ageRange: '27 × 27 cm', minMonths: 0, maxMonths: 0 },
 ];
 

@@ -7,6 +7,7 @@ import { WhatsAppButton } from '../components/common/WhatsAppButton';
 import { ProductGallery } from '../components/product/ProductGallery';
 import { ProductRail } from '../components/product/ProductRail';
 import { ProductPrice } from '../components/product/ProductPrice';
+import { KitContents } from '../components/product/KitContents';
 import { Measurements } from '../components/product/Measurements';
 import { SizeGuide } from '../components/product/SizeGuide';
 import { DesignSelector } from '../components/product/DesignSelector';
@@ -15,6 +16,7 @@ import { getCategory } from '../data/categories';
 import { getPrint } from '../data/prints';
 import { getSize, isAgeSize } from '../data/sizes';
 import { useProduct, useProducts } from '../hooks/useCatalog';
+import { absoluteUrl } from '../config/site';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useStock } from '../hooks/useStock';
 import type { Availability, Closure, ProductDesign, SizeCode } from '../types/product';
@@ -82,13 +84,46 @@ export function ProductPage() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const [showStickyCta, setShowStickyCta] = useState(false);
 
+  const sizeText = product ? product.availableSizes.map((s) => getSize(s).ageRange).join(', ') : '';
+  const metaPrice = product ? stock.price(product.slug) : undefined;
+  const metaLevel = product ? stock.level(product.slug) : null;
   usePageMeta({
-    title: product?.name ?? 'Product not found',
-    description: product ? `${product.summary} Sizes and orders via WhatsApp.` : 'This product could not be found.',
+    title: product ? `${product.name} for Babies (${sizeText})` : 'Product not found',
+    description: product
+      ? `${product.summary} Soft muslin babywear in ${sizeText} from ChinniThara. Order easily on WhatsApp.`
+      : 'This product could not be found.',
     path: `/products/${slug ?? ''}`,
     image: product?.images[0]?.src,
     type: 'product',
     noindex: !product,
+    jsonLd: product
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: product.name,
+          description: product.description.join(' '),
+          image: product.images.map((i) => absoluteUrl(i.src)),
+          sku: product.id,
+          brand: { '@type': 'Brand', name: 'ChinniThara' },
+          category: `Baby clothing > ${product.style}`,
+          material: product.fabric,
+          size: sizeText,
+          ...(metaPrice
+            ? {
+                offers: {
+                  '@type': metaPrice.max > metaPrice.min ? 'AggregateOffer' : 'Offer',
+                  priceCurrency: 'INR',
+                  ...(metaPrice.max > metaPrice.min
+                    ? { lowPrice: metaPrice.min, highPrice: metaPrice.max }
+                    : { price: metaPrice.min }),
+                  availability:
+                    metaLevel?.tone === 'out' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+                  url: absoluteUrl(`/products/${product.slug}`),
+                },
+              }
+            : {}),
+        }
+      : null,
   });
 
   // Reset selections when navigating between products. The design defaults to the one in
@@ -134,7 +169,8 @@ export function ProductPage() {
   const atStockLimit = !!liveLevel && liveLevel.qty > 0 && qty >= liveLevel.qty;
   const needsDesign = !!product.designs?.length;
   const ready = !!size && (!needsDesign || !!design);
-  const message = ready && size ? buildOrderMessage(product, size, qty, design) : null;
+  const unitPrice = size ? (stock.price(product.slug, design?.id, size)?.min ?? product.price) : undefined;
+  const message = ready && size ? buildOrderMessage(product, size, qty, design, unitPrice) : null;
   const missingChoices = [needsDesign && !design && 'a design', !size && 'a size'].filter(Boolean).join(' and ');
   const ctaLabel = soldOut ? 'Ask about restocking' : 'Order on WhatsApp';
 
@@ -193,7 +229,7 @@ export function ProductPage() {
           <div className="lg:sticky lg:top-36 lg:self-start">
             <p className="eyebrow">{product.style}</p>
             <h1 className="mt-2 text-[1.75rem] sm:text-4xl">{product.name}</h1>
-            <ProductPrice product={product} className="mt-3 text-xl" />
+            <ProductPrice product={product} design={design?.id} size={size ?? undefined} className="mt-3 text-xl" />
 
             {product.listingStatus === 'draft' && (
               <p className="mt-4 flex gap-2 rounded-2xl bg-gold-soft/50 px-4 py-3 text-sm text-ink">
@@ -310,7 +346,9 @@ export function ProductPage() {
                 </p>
               </div>
 
-              {product.availableSizes.some(isAgeSize) ? (
+              {product.kitItems && <KitContents kit={product} />}
+
+              {product.kitItems && !product.availableSizes.some(isAgeSize) ? null : product.availableSizes.some(isAgeSize) ? (
                 <SizeGuide highlight={product.availableSizes} />
               ) : (
                 <Measurements

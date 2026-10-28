@@ -1,5 +1,6 @@
 import { absoluteUrl, isWhatsAppConfigured, siteConfig } from '../config/site';
 import { getSize } from '../data/sizes';
+import { formatPrice } from './format';
 import type { Product, ProductDesign, SizeCode } from '../types/product';
 
 /** Returns a properly encoded wa.me link, or null when no number is configured. */
@@ -18,17 +19,24 @@ export function buildOrderMessage(
   size: SizeCode,
   quantity: number,
   design?: ProductDesign | null,
+  unitPrice?: number,
 ): string {
   return [
     `Hello ${siteConfig.brand.name}! I'd like to order:`,
     '',
     `• Product: ${product.name}`,
+    ...(product.kitItems ? [`• Pieces: ${product.kitItems.reduce((n, i) => n + i.qty, 0)} (as shown on the website)`] : []),
     ...(design ? [`• Design: ${design.name}`] : []),
     `• Size: ${getSize(size).label}${getSize(size).kind === 'age' ? ` (${getSize(size).ageRange})` : ''}`,
     `• Quantity: ${quantity}`,
+    ...(unitPrice !== undefined
+      ? [`• Price: ${formatPrice(unitPrice)} each${quantity > 1 ? ` (${formatPrice(unitPrice * quantity)} total)` : ''}`]
+      : []),
     `• Link: ${productUrl(product)}`,
     '',
-    'Could you please confirm availability, price and delivery details?',
+    unitPrice !== undefined
+      ? 'Could you please confirm availability and delivery details?'
+      : 'Could you please confirm availability, price and delivery details?',
   ].join('\n');
 }
 

@@ -14,6 +14,8 @@ const paths: Record<CategorySlug, string> = {
   // A stack of folded muslin cloths, used for swaddles, towels and wash cloths.
   essentials:
     'M20 62h60v14H20Z M24 48h52v14H24Z M28 34h44v14H28Z M20 69h60 M24 55h52 M28 41h44',
+  // A gift box with a bow, for kits.
+  kits: 'M22 42h56v36H22Z M18 32h64v10H18Z M50 32v46 M50 32c-6-10-18-12-18-4 0 5 10 4 18 4Zm0 0c6-10 18-12 18-4 0 5-10 4-18 4Z',
   rompers:
     'M38 16c4 4 8 6 12 6s8-2 12-6l10 4-2 14-4-1v30l-6 16H54l-4-8-4 8H40l-6-16V33l-4 1-2-14 10-4Z',
 };

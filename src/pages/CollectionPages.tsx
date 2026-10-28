@@ -43,7 +43,7 @@ export function CollectionsIndexPage() {
       />
       <div className="container-page py-6 sm:py-8">
         <ul className="grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-6 lg:grid-cols-4">
-          {collections.map((c, i) => {
+          {collections.filter((c) => products.some(c.matches)).map((c, i) => {
             const items = products.filter(c.matches);
             return (
               <li key={c.slug}>
@@ -70,8 +70,8 @@ export function CollectionPage() {
   const { products } = useProducts();
 
   usePageMeta({
-    title: collection ? collection.name : 'Collection not found',
-    description: collection?.description ?? 'This collection could not be found.',
+    title: collection ? `${collection.name} for Babies` : 'Collection not found',
+    description: collection ? `${collection.description} Soft muslin babywear from ChinniThara, ordered easily on WhatsApp.` : 'This collection could not be found.',
     path: `/collections/${slug}`,
     noindex: !collection,
   });

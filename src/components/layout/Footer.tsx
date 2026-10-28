@@ -11,13 +11,13 @@ import { aboutNav, policyNav, shopNav } from './navigation';
 function FooterColumn({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div>
-      <h2 className="mb-4 font-display text-lg text-ink">{title}</h2>
+      <h2 className="mb-5 font-footer text-[1.3rem] font-medium tracking-[-0.01em] text-ink">{title}</h2>
       {children}
     </div>
   );
 }
 
-const linkClass = 'link-underline text-ink/75 hover:text-ink';
+const linkClass = 'link-underline text-ink/85 hover:text-ink';
 
 function ContactRow({ icon, label, children }: { icon: ReactNode; label: string; children: ReactNode }) {
   return (
@@ -101,7 +101,7 @@ function MobileFooter() {
       <div className="px-4 py-2">
         {groups.map((g) => (
           <details key={g.title} className="group border-b border-ink/10 last:border-0">
-            <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between font-display text-base font-bold text-ink [&::-webkit-details-marker]:hidden">
+            <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between font-footer text-[1.05rem] font-medium text-ink [&::-webkit-details-marker]:hidden">
               {g.title}
               <span
                 aria-hidden="true"
@@ -142,7 +142,7 @@ export function Footer() {
     'grid size-11 place-items-center rounded-full bg-white text-ink shadow-[var(--shadow-whisper)] transition hover:-translate-y-0.5';
 
   return (
-    <footer className="mt-10 bg-ivory-deep lg:mt-12">
+    <footer className="mt-10 bg-ivory-deep font-footer text-[1.02rem] lg:mt-12">
       <MobileFooter />
 
       {/* Social row (tablet and desktop) */}
@@ -231,7 +231,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {brand.name}. All rights reserved.
           </p>
-          <p className="font-display text-base text-ink/80 italic">{brand.tagline}</p>
+          <p className="font-footer text-base text-ink/75">{brand.tagline}</p>
         </div>
       </div>
     </footer>

@@ -1,33 +1,45 @@
-product_slug,design_id,size,quantity,product_name (for you),design_name (for you)
-muslin-co-ord-set-white-print,,9-12M,,Muslin Co-ord Set — White Print,
-muslin-co-ord-set-colour-print,lilac-bunnies,18-24M,,Muslin Co-ord Set — Colour Print,Lilac Bunnies
-muslin-co-ord-set-colour-print,lemon-mangoes,18-24M,,Muslin Co-ord Set — Colour Print,Lemon Mangoes
-muslin-co-ord-set-colour-print,pink-peaches,18-24M,,Muslin Co-ord Set — Colour Print,Pink Peaches
-muslin-co-ord-set-colour-print,aqua-penguins,18-24M,,Muslin Co-ord Set — Colour Print,Aqua Penguins
-muslin-co-ord-set-colour-print,lilac-flowers,18-24M,,Muslin Co-ord Set — Colour Print,Lilac Flowers
-boxy-muslin-co-ord-set,,9-12M,,Boxy Muslin Co-ord Set,
-muslin-zip-frock,cream-penguins,12-24M,,Muslin Zip Frock,Cream Penguins
-muslin-zip-frock,aqua-toucans,12-24M,,Muslin Zip Frock,Aqua Toucans
-muslin-zip-frock,mint-penguins,12-24M,,Muslin Zip Frock,Mint Penguins
-muslin-zip-frock,mustard-leaves,12-24M,,Muslin Zip Frock,Mustard Leaves
-muslin-zip-frock,lilac-bunnies,12-24M,,Muslin Zip Frock,Lilac Bunnies
-muslin-knot-frock,aqua-penguins,3-6M,,Muslin Knot Frock,Aqua Penguins
-muslin-knot-frock,mustard-leaves,3-6M,,Muslin Knot Frock,Mustard Leaves
-muslin-knot-frock,olive-leaves,3-6M,,Muslin Knot Frock,Olive Leaves
-muslin-knot-frock,pink-peaches,3-6M,,Muslin Knot Frock,Pink Peaches
-muslin-knot-frock,lemon-mangoes,3-6M,,Muslin Knot Frock,Lemon Mangoes
-side-button-muslin-jabla,rainbow-balloons,3-6M,,Side-Button Muslin Jabla,Rainbows & Balloons
-side-button-muslin-jabla,sage-elephants,3-6M,,Side-Button Muslin Jabla,Sage Elephants
-side-button-muslin-jabla,ice-creams,3-6M,,Side-Button Muslin Jabla,Ice Creams
-muslin-romper,,3-6M,,Muslin Romper,
-muslin-swaddle,sage-sprigs,100x100CM,,Muslin Swaddle,Sage Sprigs
-muslin-swaddle,pink-peaches,100x100CM,,Muslin Swaddle,Pink Peaches
-muslin-swaddle,aqua-toucans,100x100CM,,Muslin Swaddle,Aqua Toucans
-muslin-swaddle,rust-blossoms,100x100CM,,Muslin Swaddle,Rust Blossoms
-muslin-bath-towel,,75x150CM,,Muslin Bath Towel,
-muslin-hooded-towel,,75x75CM,,Muslin Hooded Towel,
-muslin-wash-cloth,,27x27CM,,Muslin Wash Cloth,
-muslin-cloth-nappy,elephants-rainbows,3-6M,,Muslin Cloth Nappy,Elephants & Rainbows
-muslin-cloth-nappy,happy-crabs,3-6M,,Muslin Cloth Nappy,Happy Crabs
-muslin-cloth-nappy,butterflies,3-6M,,Muslin Cloth Nappy,Butterflies
-muslin-cloth-nappy,moons-clouds,3-6M,,Muslin Cloth Nappy,Moons & Clouds
+product_slug,design_id,size,quantity,price,mrp,product_name (for you),design_name (for you)
+muslin-co-ord-set-white-print,coconut-grove,9-12M,5,,,White Print Muslin Co-ord Set,Coconut Grove
+muslin-co-ord-set-white-print,honey-bees,9-12M,5,,,White Print Muslin Co-ord Set,Honey Bees
+muslin-co-ord-set-white-print,sea-friends,9-12M,5,,,White Print Muslin Co-ord Set,Sea Friends
+muslin-co-ord-set-white-print,garden-bugs,9-12M,5,,,White Print Muslin Co-ord Set,Garden Bugs
+muslin-co-ord-set-white-print,rainbow-elephants,9-12M,5,,,White Print Muslin Co-ord Set,Rainbow Elephants
+muslin-co-ord-set-colour-print,lilac-bunnies,18-24M,5,,,Colour Print Muslin Co-ord Set,Lilac Bunnies
+muslin-co-ord-set-colour-print,lemon-mangoes,18-24M,5,,,Colour Print Muslin Co-ord Set,Lemon Mangoes
+muslin-co-ord-set-colour-print,pink-peaches,18-24M,5,,,Colour Print Muslin Co-ord Set,Pink Peaches
+muslin-co-ord-set-colour-print,aqua-penguins,18-24M,5,,,Colour Print Muslin Co-ord Set,Aqua Penguins
+muslin-co-ord-set-colour-print,lilac-flowers,18-24M,5,,,Colour Print Muslin Co-ord Set,Lilac Flowers
+boxy-muslin-co-ord-set,happy-sunshine,9-12M,3,,,Boxy Muslin Co-ord Set,Happy Sunshine
+muslin-zip-frock,cream-penguins,12-24M,0,,,Muslin Zip Frock,Cream Penguins
+muslin-zip-frock,aqua-toucans,12-24M,5,,,Muslin Zip Frock,Aqua Toucans
+muslin-zip-frock,mint-penguins,12-24M,5,,,Muslin Zip Frock,Mint Penguins
+muslin-zip-frock,mustard-leaves,12-24M,2,,,Muslin Zip Frock,Mustard Leaves
+muslin-zip-frock,lilac-bunnies,12-24M,5,,,Muslin Zip Frock,Lilac Bunnies
+muslin-knot-frock,aqua-penguins,3-6M,5,,,Muslin Knot Frock,Aqua Penguins
+muslin-knot-frock,mustard-leaves,3-6M,5,,,Muslin Knot Frock,Mustard Leaves
+muslin-knot-frock,olive-leaves,3-6M,5,,,Muslin Knot Frock,Olive Leaves
+muslin-knot-frock,pink-peaches,3-6M,5,,,Muslin Knot Frock,Pink Peaches
+muslin-knot-frock,lemon-mangoes,3-6M,5,,,Muslin Knot Frock,Lemon Mangoes
+side-button-muslin-jabla,rainbow-balloons,3-6M,5,,,Side-Button Muslin Jabla,Rainbows & Balloons
+side-button-muslin-jabla,sage-elephants,3-6M,5,,,Side-Button Muslin Jabla,Sage Elephants
+side-button-muslin-jabla,ice-creams,3-6M,5,,,Side-Button Muslin Jabla,Ice Creams
+muslin-romper,dinosaurs,3-6M,5,,,Muslin Romper,Dinosaurs
+muslin-romper,space-bunnies,3-6M,5,,,Muslin Romper,Space Bunnies
+muslin-swaddle,sage-sprigs,100x100CM,5,,,Muslin Swaddle,Sage Sprigs
+muslin-swaddle,pink-peaches,100x100CM,5,,,Muslin Swaddle,Pink Peaches
+muslin-swaddle,aqua-toucans,100x100CM,5,,,Muslin Swaddle,Aqua Toucans
+muslin-swaddle,rust-blossoms,100x100CM,5,,,Muslin Swaddle,Rust Blossoms
+muslin-bath-towel,sage-sprigs,75x150CM,5,,,Muslin Bath Towel,Sage Sprigs
+muslin-bath-towel,pink-peaches,75x150CM,5,,,Muslin Bath Towel,Pink Peaches
+muslin-bath-towel,aqua-toucans,75x150CM,5,,,Muslin Bath Towel,Aqua Toucans
+muslin-bath-towel,rust-blossoms,75x150CM,5,,,Muslin Bath Towel,Rust Blossoms
+muslin-hooded-towel,little-space,75x75CM,5,,,Muslin Hooded Towel,Little Space
+muslin-wash-cloth,mustard-leaves,27x27CM,5,,,Muslin Wash Cloth,Mustard Leaves
+muslin-wash-cloth,aqua-toucans,27x27CM,5,,,Muslin Wash Cloth,Aqua Toucans
+muslin-wash-cloth,pink-owls,27x27CM,5,,,Muslin Wash Cloth,Pink Owls
+muslin-wash-cloth,apricot-blossoms,27x27CM,5,,,Muslin Wash Cloth,Apricot Blossoms
+muslin-wash-cloth,olive-leaves,27x27CM,5,,,Muslin Wash Cloth,Olive Leaves
+muslin-cloth-nappy,elephants-rainbows,3-6M,5,,,Muslin Cloth Nappy,Elephants & Rainbows
+muslin-cloth-nappy,happy-crabs,3-6M,5,,,Muslin Cloth Nappy,Happy Crabs
+muslin-cloth-nappy,butterflies,3-6M,5,,,Muslin Cloth Nappy,Butterflies
+muslin-cloth-nappy,moons-clouds,3-6M,5,,,Muslin Cloth Nappy,Moons & Clouds

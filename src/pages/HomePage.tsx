@@ -7,6 +7,7 @@ import { CottonMotif, SprigMotif } from '../components/common/Motifs';
 import { ResponsiveImage } from '../components/common/ResponsiveImage';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { HeroCarousel } from '../components/home/HeroCarousel';
+import { KitsShowcase } from '../components/home/KitsShowcase';
 import { NewArrivalsTabs } from '../components/home/NewArrivalsTabs';
 import { ShopByAge } from '../components/home/ShopByAge';
 import { ShopByPrintStrip } from '../components/home/ShopByPrintStrip';
@@ -23,9 +24,10 @@ import { usePageMeta } from '../hooks/usePageMeta';
 
 export function HomePage() {
   usePageMeta({
-    title: siteConfig.brand.name,
+    title: 'ChinniThara | Muslin Baby Clothes & Baby Essentials',
+    rawTitle: true,
     description:
-      'ChinniThara, exquisite baby clothing. Thoughtfully chosen muslin co-ord sets, frocks and baby essentials for little ones up to 2 years.',
+      'Soft muslin baby clothes and baby essentials for 0 to 2 years: co-ord sets, frocks, jablas, rompers, swaddles, towels and cloth nappies. Order easily on WhatsApp.',
     path: '/',
   });
 
@@ -38,6 +40,7 @@ export function HomePage() {
       <HeroCarousel banners={banners} />
       <ShopByAge products={products} />
       <NewArrivalsTabs products={products} />
+      <KitsShowcase products={products} />
 
       <ShopByStyle products={products} />
 
@@ -129,6 +132,11 @@ export function HomePage() {
               <p>
                 We choose every style with care: comfortable cuts, easy closures and prints that make you smile,
                 so you can focus on the cuddles, giggles and first adventures.
+              </p>
+              <p className="text-base text-ink/70">
+                Our collection brings together soft muslin baby clothes for 0 to 2 years, from co-ord sets, frocks,
+                jablas and rompers to everyday baby essentials like swaddles, bath towels, hooded towels, wash cloths
+                and cloth nappies.
               </p>
             </div>
             <Link to="/our-story" className="btn btn-outline mt-8">

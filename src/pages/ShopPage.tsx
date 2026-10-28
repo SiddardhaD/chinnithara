@@ -5,9 +5,9 @@ import { usePageMeta } from '../hooks/usePageMeta';
 
 export function ShopPage() {
   usePageMeta({
-    title: 'Shop All Babywear',
+    title: 'Shop Muslin Baby Clothes & Essentials',
     description:
-      'Browse the full ChinniThara collection of muslin co-ord sets, frocks, jablas, rompers and muslin essentials for little ones up to 2 years.',
+      'Shop soft muslin babywear for 0 to 2 years: co-ord sets, frocks, jablas, rompers, swaddles, bath towels, wash cloths and cloth nappies.',
     path: '/shop',
   });
   const { products } = useProducts();

@@ -73,7 +73,7 @@ export function AgePage() {
   const { products } = useProducts();
 
   usePageMeta({
-    title: group ? `Babywear for ${group.name}` : 'Age group not found',
+    title: group ? `Muslin Baby Clothes for ${group.name}` : 'Age group not found',
     description: group ? `ChinniThara pieces for little ones aged ${group.name}. ${group.description}` : 'Not found.',
     path: `/age/${slug}`,
     noindex: !group,

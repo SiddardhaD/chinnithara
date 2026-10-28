@@ -13,6 +13,7 @@ import {
   type Filters,
   type SortValue,
 } from '../../utils/filters';
+import { useStock } from '../../hooks/useStock';
 import { EmptyState } from '../common/EmptyState';
 import { FilterPanel } from './FilterPanel';
 import { ProductGrid } from './ProductGrid';
@@ -66,7 +67,14 @@ export function CatalogBrowser({ products, hiddenFacets = [] }: { products: Prod
     };
   }, [drawerOpen]);
 
-  const results = useMemo(() => applyFilters(products, filters), [products, filters]);
+  // Use the sheet's lowest price for sorting when products.ts has none.
+  const stock = useStock();
+  const priced = useMemo(
+    () => products.map((p) => (p.price !== undefined ? p : { ...p, price: stock.price(p.slug)?.min })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [products, stock.ready],
+  );
+  const results = useMemo(() => applyFilters(priced, filters), [priced, filters]);
   const options = useMemo(() => facetOptions(products), [products]);
   const activeCount = activeFilterCount(filters);
 
